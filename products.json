@@ -1,137 +1,97 @@
 {
   "products": [
     {
-      "id": "bumper-premium",
-      "name": "Bumper Bed Premium",
-      "category": "bumper",
-      "description": "Pelindung ranjang bayi mewah dengan bantalan empuk berkualitas tinggi",
-      "basePrice": "Rp 1,849,900",
-      "basePriceNumeric": 1849900,
-      "sizes": [
-        {
-          "name": "150 x 100 cm",
-          "dimensions": "150cm x 100cm",
-          "priceMultiplier": 1.0
-        },
-        {
-          "name": "180 x 120 cm",
-          "dimensions": "180cm x 120cm",
-          "priceMultiplier": 1.2
-        }
-      ],
-      "features": [
-        "Ketebalan Busa: 4-5 cm (Padat & Empuk)",
-        "Premium PU Synthetic Leather",
-        "Medis, Hypoallergenic",
-        "Anti-air (Waterproof)",
-        "Sangat mudah dibersihkan",
-        "Sertifikasi Hypoallergenic"
-      ],
-      "customizableParts": [
-        "Dinding Kiri (Luar & Dalam)",
-        "Dinding Kanan (Luar & Dalam)",
-        "Dinding Depan (Luar & Dalam)",
-        "Dinding Belakang (Luar & Dalam)",
-        "Alas Kiri",
-        "Alas Tengah",
-        "Alas Kanan"
-      ]
+      "id": "p1",
+      "name": "Playbie Playmat Bumper Bed / Bumper Box 100x100, 150x150, 200x200",
+      "price": "Rp1.519.925",
+      "originalPrice": "Rp1.649.000",
+      "shopeeLink": "https://shopee.co.id/Playbie-Playmat-Bumper-Bed-Bumper-Box-150x100-i.268170399.7642542635",
+      "image": "assets/product1.jpg",
+      "rating": 5.0,
+      "sold": "1RB+",
+      "description": "Playbie Playmat Bumper Bed / Bumper Box premium berkualitas tinggi. Bahan kulit vegan hypoallergenic, waterproof, dan mudah dibersihkan. Tersedia dalam 16 warna pilihan: Rainbow, Chocolate, Sweet, Scandinavian Blue, Scandinavian Pink, Royal Blue, Royal Pink, Funny, Bubblegum, Candy, Kiddiland, Sunshine, Scandinavian White, Handsome, Beautiful, Grey Combi. Ukuran: 100x100, 150x150, 200x200. Cocok untuk kamar bayi, ruang bermain, dan ruang keluarga modern.",
+      "variants": {
+        "colors": [
+          "Rainbow", "Chocolate", "Sweet", "Scandinavian Blue", 
+          "Scandinavian Pink", "Royal Blue", "Royal Pink", "Funny",
+          "Bubblegum", "Candy", "Kiddiland", "Sunshine", 
+          "Scandinavian White", "Handsome", "Beautiful", "Grey Combi"
+        ],
+        "sizes": ["100x100", "150x150", "200x200"]
+      },
+      "features": ["Hypoallergenic", "Waterproof", "Anti-slip", "Foldable", "Premium PU Leather"],
+      "category": "Bumper Bed"
     },
     {
-      "id": "playmat-lipat",
-      "name": "Playmat Lipat Standard",
-      "category": "playmat",
-      "description": "Matras bermain lipat dengan bahan premium",
-      "basePrice": "Rp 1,200,000",
-      "basePriceNumeric": 1200000,
-      "features": [
-        "Bahan premium berkualitas",
-        "Anti-slip",
-        "Mudah dilipat",
-        "aman untuk bayi"
-      ]
+      "id": "p2",
+      "name": "Playbie Playmat Bumper Bed / Bumper Box - (Product 2)",
+      "price": "TBD",
+      "shopeeLink": "https://shopee.co.id/Playbie-playmat-Bumper-Bed-Bumper-Box-100x100-150x150-200x200-i.268170399.4342539264",
+      "image": "",
+      "rating": 5.0,
+      "sold": "TBD",
+      "description": "",
+      "variants": {
+        "colors": [],
+        "sizes": []
+      },
+      "features": [],
+      "category": "Bumper Bed"
     },
     {
-      "id": "coffee-series",
-      "name": "Coffee Series Edition",
-      "category": "custom",
-      "description": "Edisi khusus dengan warna-warna earth tone ala kopi",
-      "basePrice": "Rp 2,100,000",
-      "basePriceNumeric": 2100000,
-      "theme": "Coffee Series",
-      "colorPalette": [
-        "Beige",
-        "Cappuccino",
-        "Taupe",
-        "Mocca",
-        "Caramel"
-      ]
+      "id": "p3",
+      "name": "Playbie Playmat Bumper Bed / Bumper Box Coffee Series - (Product 3)",
+      "price": "TBD",
+      "shopeeLink": "https://shopee.co.id/Playbie-playmat-Bumper-Bed-Bumper-Box-Coffee-Series-100x100-150x150-200x200-i.268170399.6575988913",
+      "image": "",
+      "rating": 5.0,
+      "sold": "TBD",
+      "description": "Coffee Series - Desain warna earth-tone untuk interior rumah minimalis modern.",
+      "variants": {
+        "colors": [],
+        "sizes": ["100x100", "150x150", "200x200"]
+      },
+      "features": ["Hypoallergenic", "Waterproof", "Anti-slip", "Foldable", "Premium PU Leather"],
+      "category": "Coffee Series"
+    },
+    {
+      "id": "p4",
+      "name": "Playbie Mainan Playmat Bayi Sprei Bumper Bed Custom Warna 150 x 200 - (Product 4)",
+      "price": "TBD",
+      "shopeeLink": "https://shopee.co.id/Playbie-mainan-playmat-bayi-sprei-bumper-bed-custom-warna-150-x-200-i.268170399.21934771550",
+      "image": "",
+      "rating": 5.0,
+      "sold": "TBD",
+      "description": "Custom warna - Pilih warna sesuai selera Anda. Ukuran 150x200cm.",
+      "variants": {
+        "colors": [],
+        "sizes": ["150x200"]
+      },
+      "features": ["Hypoallergenic", "Waterproof", "Anti-slip", "Foldable", "Premium PU Leather", "Custom Color"],
+      "category": "Custom Bumper Bed"
+    },
+    {
+      "id": "p5",
+      "name": "Playbie Mainan Playmat Sprei Bumper Bed Bumper Box Custom Warna - (Product 5)",
+      "price": "TBD",
+      "shopeeLink": "https://shopee.co.id/Playbie-mainan-playmat-sprei-Bumper-Bed-Bumper-Box-Custom-warna-i.268170399.7093422108",
+      "image": "",
+      "rating": 5.0,
+      "sold": "TBD",
+      "description": "Custom warna - Pilih warna sesuai selera Anda.",
+      "variants": {
+        "colors": [],
+        "sizes": []
+      },
+      "features": ["Hypoallergenic", "Waterproof", "Anti-slip", "Foldable", "Premium PU Leather", "Custom Color"],
+      "category": "Custom Bumper Bed"
     }
   ],
-  "categories": [
-    {
-      "id": "bumper",
-      "name": "Bumper Bed",
-      "description": "Pelindung ranjang bayi dengan bantalan empuk"
-    },
-    {
-      "id": "playmat",
-      "name": "Playmat",
-      "description": "Matras bermain dan belajar untuk bayi"
-    },
-    {
-      "id": "custom",
-      "name": "Custom Series",
-      "description": "Seri kustom dengan tema khusus"
-    }
-  ],
-  "colors": [
-    {"name": "White", "hex": "#FAF9F6"},
-    {"name": "Cream", "hex": "#FFFDD0"},
-    {"name": "Silver Grey", "hex": "#C0C0C0"},
-    {"name": "Grey", "hex": "#808080"},
-    {"name": "Baby Blue", "hex": "#89CFF0"},
-    {"name": "Cyan Blue", "hex": "#00FFFF"},
-    {"name": "Vector Blue", "hex": "#4169E1"},
-    {"name": "Mint Green", "hex": "#98FF98"},
-    {"name": "Loly Green", "hex": "#A8E6CF"},
-    {"name": "Beige", "hex": "#F5F5DC"},
-    {"name": "Cappuccino", "hex": "#C8A882"},
-    {"name": "Taupe", "hex": "#483C32"},
-    {"name": "Mocca", "hex": "#826C55"},
-    {"name": "Lilac", "hex": "#C8A2C8"},
-    {"name": "Peach", "hex": "#FFDAB9"},
-    {"name": "Flamingo Pink", "hex": "#FC8EAC"},
-    {"name": "Coral", "hex": "#FF7F50"},
-    {"name": "Caramel", "hex": "#C68E17"},
-    {"name": "Royal Blue", "hex": "#0F52BA"},
-    {"name": "Hip-hop Red", "hex": "#FF007F"},
-    {"name": "Orange", "hex": "#FFA500"},
-    {"name": "Hot Pink", "hex": "#FF69B4"},
-    {"name": "Army Green", "hex": "#4B5320"},
-    {"name": "Lemon", "hex": "#FFF700"}
-  ],
-  "animalThemes": [
-    "Lion",
-    "Bear",
-    "Rabbit",
-    "Cat",
-    "Dog",
-    "Elephant"
-  ],
-  "materials": {
-    "outerMaterial": "Premium PU Synthetic Leather",
-    "innerFoam": "Busa 4-5 cm (Padat & Empuk)",
-    "properties": [
-      "Medis",
-      "Hypoallergenic",
-      "Anti-air (Waterproof)",
-      "Mudah dibersihkan"
-    ]
-  },
-  "promo": {
-    "code": "PLAYBIE10",
-    "discount": "10%",
-    "description": "Diskon 10% untuk pembelian pertama"
+  "store": {
+    "name": "Asientoplaybie",
+    "rating": 5.0,
+    "followers": "22.3RB",
+    "products": 103,
+    "location": "Kota Tangerang"
   }
 }
