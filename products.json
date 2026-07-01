@@ -2,14 +2,37 @@
   "products": [
     {
       "id": "p1",
+      "name": "Playbie Playmat Bumper Bed / Bumper Box 150x100",
+      "price": "Rp1.765.921",
+      "originalPrice": "Rp2.399.900",
+      "shopeeLink": "https://shopee.co.id/Playbie-Playmat-Bumper-Bed-Bumper-Box-150x100-i.268170399.7642542635",
+      "image": "assets/products/p1-1.jpg",
+      "images": ["assets/products/p1-1.jpg", "assets/products/p1-2.jpg", "assets/products/p1-3.jpg"],
+      "rating": 5.0,
+      "sold": "855+",
+      "category": "Bumper Bed",
+      "variants": {
+        "colors": [
+          "Bubblegum", "Candy", "Kiddiland", "Sunshine", "Scandinavian White", 
+          "Handsome", "Beautiful", "Grey Combi", "Rainbow", "Chocolate", 
+          "Sweet", "Scandinavain Blue", "Scandinavian Pink", "Royal Blue", "Royal Pink", "Funny"
+        ],
+        "sizes": ["150x100x50"]
+      },
+      "features": ["Premium PU Leather", "Hypoallergenic", "Waterproof", "Anti-slip", "Foldable"],
+      "description": "Playbie Playmat Bumper Bed / Bumper Box premium berkualitas tinggi. Bahan kulit vegan hypoallergenic, waterproof, dan mudah dibersihkan. Bantalan empuk 4-5cm untuk keamanan bayi saat bermain. Tersedia 16 warna pilihan. Cocok untuk kamar bayi, ruang bermain, dan ruang keluarga modern. Dilengkapi dengan bantalan tebal yang nyaman dan aman untuk aktivitas si kecil."
+    },
+    {
+      "id": "p2",
       "name": "Playbie Playmat Bumper Bed / Bumper Box 100x100, 150x150, 200x200",
       "price": "Rp1.519.925",
-      "originalPrice": "Rp1.649.000",
-      "shopeeLink": "https://shopee.co.id/Playbie-Playmat-Bumper-Bed-Bumper-Box-150x100-i.268170399.7642542635",
-      "image": "assets/product1.jpg",
+      "originalPrice": "",
+      "shopeeLink": "https://shopee.co.id/Playbie-playmat-Bumper-Bed-Bumper-Box-100x100-150x150-200x200-i.268170399.4342539264",
+      "image": "assets/products/p2-1.jpg",
+      "images": ["assets/products/p2-1.jpg", "assets/products/p2-2.jpg", "assets/products/p2-3.jpg"],
       "rating": 5.0,
       "sold": "1RB+",
-      "description": "Playbie Playmat Bumper Bed / Bumper Box premium berkualitas tinggi. Bahan kulit vegan hypoallergenic, waterproof, dan mudah dibersihkan. Tersedia dalam 16 warna pilihan: Rainbow, Chocolate, Sweet, Scandinavian Blue, Scandinavian Pink, Royal Blue, Royal Pink, Funny, Bubblegum, Candy, Kiddiland, Sunshine, Scandinavian White, Handsome, Beautiful, Grey Combi. Ukuran: 100x100, 150x150, 200x200. Cocok untuk kamar bayi, ruang bermain, dan ruang keluarga modern.",
+      "category": "Bumper Bed",
       "variants": {
         "colors": [
           "Rainbow", "Chocolate", "Sweet", "Scandinavian Blue", 
@@ -19,72 +42,61 @@
         ],
         "sizes": ["100x100", "150x150", "200x200"]
       },
-      "features": ["Hypoallergenic", "Waterproof", "Anti-slip", "Foldable", "Premium PU Leather"],
-      "category": "Bumper Bed"
-    },
-    {
-      "id": "p2",
-      "name": "Playbie Playmat Bumper Bed / Bumper Box - (Product 2)",
-      "price": "TBD",
-      "shopeeLink": "https://shopee.co.id/Playbie-playmat-Bumper-Bed-Bumper-Box-100x100-150x150-200x200-i.268170399.4342539264",
-      "image": "",
-      "rating": 5.0,
-      "sold": "TBD",
-      "description": "",
-      "variants": {
-        "colors": [],
-        "sizes": []
-      },
-      "features": [],
-      "category": "Bumper Bed"
+      "features": ["Premium PU Leather", "Hypoallergenic", "Waterproof", "Anti-slip", "Foldable"],
+      "description": "Playbie Playmat Bumper Bed / Bumper Box premium berkualitas tinggi. Bahan kulit vegan hypoallergenic, waterproof, dan mudah dibersihkan. Bantalan empuk 4-5cm untuk keamanan bayi. Tersedia 3 pilihan ukuran dan 16 warna. Cocok untuk kamar bayi, ruang bermain, dan ruang keluarga modern."
     },
     {
       "id": "p3",
-      "name": "Playbie Playmat Bumper Bed / Bumper Box Coffee Series - (Product 3)",
-      "price": "TBD",
+      "name": "Playbie Playmat Bumper Bed / Bumper Box Coffee Series 100x100, 150x150, 200x200",
+      "price": "Rp1.519.925",
+      "originalPrice": "",
       "shopeeLink": "https://shopee.co.id/Playbie-playmat-Bumper-Bed-Bumper-Box-Coffee-Series-100x100-150x150-200x200-i.268170399.6575988913",
-      "image": "",
-      "rating": 5.0,
-      "sold": "TBD",
-      "description": "Coffee Series - Desain warna earth-tone untuk interior rumah minimalis modern.",
+      "image": "assets/products/p3-1.jpg",
+      "images": ["assets/products/p3-1.jpg", "assets/products/p3-2.jpg", "assets/products/p3-3.jpg"],
+      "rating": 4.9,
+      "sold": "251+",
+      "category": "Coffee Series",
       "variants": {
-        "colors": [],
+        "colors": ["Americano", "Cappucino", "Espresso", "Macchiato", "Mochaccino", "Latte", "Greentea", "LongBlue"],
         "sizes": ["100x100", "150x150", "200x200"]
       },
-      "features": ["Hypoallergenic", "Waterproof", "Anti-slip", "Foldable", "Premium PU Leather"],
-      "category": "Coffee Series"
+      "features": ["Premium PU Leather", "Hypoallergenic", "Waterproof", "Anti-slip", "Foldable", "Earth Tone Design"],
+      "description": "Playbie Playmat Bumper Bed / Bumper Box Coffee Series - Desain warna earth-tone untuk interior rumah minimalis modern. Bahan kulit vegan hypoallergenic, waterproof, dan mudah dibersihkan. Tersedia 8 warna kopi dan 3 pilihan ukuran. Cocok untuk orang tua yang mengutamakan estetika ruang keluarga."
     },
     {
       "id": "p4",
-      "name": "Playbie Mainan Playmat Bayi Sprei Bumper Bed Custom Warna 150 x 200 - (Product 4)",
-      "price": "TBD",
+      "name": "Playbie Mainan Playmat Bayi Sprei Bumper Bed Custom Warna 150 x 200",
+      "price": "Rp2.844.915",
+      "originalPrice": "",
       "shopeeLink": "https://shopee.co.id/Playbie-mainan-playmat-bayi-sprei-bumper-bed-custom-warna-150-x-200-i.268170399.21934771550",
-      "image": "",
+      "image": "assets/products/p4-1.jpg",
+      "images": ["assets/products/p4-1.jpg", "assets/products/p4-2.jpg", "assets/products/p4-3.jpg"],
       "rating": 5.0,
-      "sold": "TBD",
-      "description": "Custom warna - Pilih warna sesuai selera Anda. Ukuran 150x200cm.",
+      "sold": "103+",
+      "category": "Custom Bumper Bed",
       "variants": {
-        "colors": [],
+        "types": ["POLOS", "MOTIF 2 SISI GAMBAR", "MOTIF 4 SISI GAMBAR"],
         "sizes": ["150x200"]
       },
-      "features": ["Hypoallergenic", "Waterproof", "Anti-slip", "Foldable", "Premium PU Leather", "Custom Color"],
-      "category": "Custom Bumper Bed"
+      "features": ["Premium PU Leather", "Hypoallergenic", "Waterproof", "Anti-slip", "Foldable", "Custom Motif"],
+      "description": "Playbie Mainan Playmat Bayi Sprei Bumper Bed dengan pilihan POLOS atau MOTIF. Tersedia motif 2 sisi dan 4 sisi gambar yang menarik untuk si kecil. Bahan premium hypoallergenic, waterproof, dan nyaman. Ukuran 150x200cm cocok untuk kamar bayi atau ruang bermain."
     },
     {
       "id": "p5",
-      "name": "Playbie Mainan Playmat Sprei Bumper Bed Bumper Box Custom Warna - (Product 5)",
-      "price": "TBD",
+      "name": "Playbie Mainan Playmat Sprei Bumper Bed / Bumper Box Custom Warna",
+      "price": "Rp1.585.922",
+      "originalPrice": "",
       "shopeeLink": "https://shopee.co.id/Playbie-mainan-playmat-sprei-Bumper-Bed-Bumper-Box-Custom-warna-i.268170399.7093422108",
-      "image": "",
+      "image": "assets/products/p5-1.jpg",
+      "images": ["assets/products/p5-1.jpg", "assets/products/p5-2.jpg", "assets/products/p5-3.jpg"],
       "rating": 5.0,
-      "sold": "TBD",
-      "description": "Custom warna - Pilih warna sesuai selera Anda.",
+      "sold": "219+",
+      "category": "Custom Bumper Bed",
       "variants": {
-        "colors": [],
-        "sizes": []
+        "sizes": ["Custom warna 100x100", "Custom warna 150x100", "Custom warna 150x150", "Custom warna 200x200", "Custom warna 100x200"]
       },
-      "features": ["Hypoallergenic", "Waterproof", "Anti-slip", "Foldable", "Premium PU Leather", "Custom Color"],
-      "category": "Custom Bumper Bed"
+      "features": ["Premium PU Leather", "Hypoallergenic", "Waterproof", "Anti-slip", "Foldable", "Custom Warna"],
+      "description": "Playbie Mainan Playmat Sprei Bumper Bed / Bumper Box dengan pilihan custom warna. Desain multifungsi: untuk belajar tengkurep, duduk, berdiri, berjalan, baby gym, mandi bola, sensory play, dan tempat tidur. Bantalan empuk dan aman. Ringan sehingga mudah dipindahkan. Bahan premium hypoallergenic waterproof."
     }
   ],
   "store": {
@@ -92,6 +104,8 @@
     "rating": 5.0,
     "followers": "22.3RB",
     "products": 103,
-    "location": "Kota Tangerang"
+    "location": "Kota Tangerang",
+    "chatResponse": "98%",
+    "memberSince": "6 tahun lalu"
   }
 }
