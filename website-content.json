@@ -1,0 +1,101 @@
+{
+  "website": {
+    "name": "Playbie",
+    "tagline": "Luxury Custom Bumper Beds & Playmats",
+    "url": "https://asientoplaybie.com/",
+    "description": "Redesign premium Playbie e-commerce. Temukan Bumper Bed & Playmat mewah kustom 3D interaktif untuk kenyamanan terbaik bayi Anda.",
+    "location": "Senopati, Kebayoran Baru, Jakarta Selatan, Indonesia"
+  },
+  "hero": {
+    "tag": "Aesthetic Comfort",
+    "title": "Cloud Pastel Dreamland",
+    "description": "Matras bermain dan pelindung ranjang bayi terlembut dengan warna pastel berestetika tinggi, dirancang untuk mendukung tumbuh kembang si kecil dengan keamanan maksimal.",
+    "backgroundImage": "assets/pastel_bumper_bed.png",
+    "theme": "pastel"
+  },
+  "heroSlides": [
+    {
+      "id": "slidePastel",
+      "tag": "Aesthetic Comfort",
+      "title": "Cloud Pastel Dreamland",
+      "description": "Matras bermain dan pelindung ranjang bayi terlembut dengan warna pastel berestetika tinggi, dirancang untuk mendukung tumbuh kembang si kecil dengan keamanan maksimal.",
+      "backgroundImage": "assets/pastel_bumper_bed.png",
+      "ctaPrimary": "Custom 3D Sekarang",
+      "ctaSecondary": "Lihat Koleksi"
+    },
+    {
+      "id": "slideNordic",
+      "tag": "Nordic Luxury",
+      "title": "Nordic Minimalist Living",
+      "description": "Keanggunan fungsional bergaya Skandinavia. Menghadirkan playmat mewah dengan nada bumi alami (earth-tones) yang berpadu selaras dalam keindahan interior rumah modern Anda.",
+      "backgroundImage": "assets/nordic_playmat.png",
+      "ctaPrimary": "Mulai Custom 3D",
+      "ctaSecondary": "Eksplorasi Produk"
+    }
+  ],
+  "lookbook": {
+    "title": "Designed for Modern Parenting",
+    "subtitle": "Keseimbangan sempurna antara keamanan bayi tercinta dan estetika ruang tamu minimalis Anda.",
+    "cards": [
+      {
+        "id": 1,
+        "title": "Nursery Playroom",
+        "description": "Ruang bermain yang aman dan estetik untuk si kecil",
+        "image": "assets/pastel_bumper_bed.png"
+      },
+      {
+        "id": 2,
+        "title": "Living Room Integration",
+        "description": "Harmoni sempurna dengan interior rumah modern",
+        "image": "assets/nordic_playmat.png"
+      },
+      {
+        "id": 3,
+        "title": "Coffee Series",
+        "description": "Nuansa hangat earth tone untuk rumah minimalis",
+        "link": "Beli Koleksi Coffee Series"
+      }
+    ]
+  },
+  "features": [
+    {
+      "icon": "pad",
+      "title": "Foam Padding",
+      "description": "Ketebalan Busa: 4 - 5 cm (Padat & Empuk)"
+    },
+    {
+      "icon": "shield",
+      "title": "Premium Material",
+      "description": "Bahan: Premium PU Synthetic Leather (Medis, Hypoallergenic)"
+    },
+    {
+      "icon": "droplet",
+      "title": "Waterproof",
+      "description": "Sifat Bahan: Anti-air (Waterproof), Sangat mudah dibersihkan"
+    },
+    {
+      "icon": "palette",
+      "title": "Custom Colors",
+      "description": "Kustomizer Warna 3D - Pilih dari 24+ warna"
+    },
+    {
+      "icon": "heart",
+      "title": "Hypoallergenic",
+      "description": "Sertifikasi Hypoallergenic - Aman untuk bayi"
+    },
+    {
+      "icon": "refresh",
+      "title": "Easy Care",
+      "description": "Panduan Perawatan Kulit PU"
+    }
+  ],
+  "policies": [
+    "Sertifikasi Hypoallergenic",
+    "Kebijakan Pengembalian"
+  ],
+  "seo": {
+    "metaDescription": "Redesign premium Playbie e-commerce. Temukan Bumper Bed & Playmat mewah kustom 3D interaktif untuk kenyamanan terbaik bayi Anda.",
+    "metaKeywords": "Playbie, Bumper Bed, Bumper Box, Playmat Bayi, Custom Warna, Tempat Tidur Bayi",
+    "author": "Playbie Indonesia"
+  }
+}

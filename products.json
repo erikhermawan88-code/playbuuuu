@@ -1,0 +1,137 @@
+{
+  "products": [
+    {
+      "id": "bumper-premium",
+      "name": "Bumper Bed Premium",
+      "category": "bumper",
+      "description": "Pelindung ranjang bayi mewah dengan bantalan empuk berkualitas tinggi",
+      "basePrice": "Rp 1,849,900",
+      "basePriceNumeric": 1849900,
+      "sizes": [
+        {
+          "name": "150 x 100 cm",
+          "dimensions": "150cm x 100cm",
+          "priceMultiplier": 1.0
+        },
+        {
+          "name": "180 x 120 cm",
+          "dimensions": "180cm x 120cm",
+          "priceMultiplier": 1.2
+        }
+      ],
+      "features": [
+        "Ketebalan Busa: 4-5 cm (Padat & Empuk)",
+        "Premium PU Synthetic Leather",
+        "Medis, Hypoallergenic",
+        "Anti-air (Waterproof)",
+        "Sangat mudah dibersihkan",
+        "Sertifikasi Hypoallergenic"
+      ],
+      "customizableParts": [
+        "Dinding Kiri (Luar & Dalam)",
+        "Dinding Kanan (Luar & Dalam)",
+        "Dinding Depan (Luar & Dalam)",
+        "Dinding Belakang (Luar & Dalam)",
+        "Alas Kiri",
+        "Alas Tengah",
+        "Alas Kanan"
+      ]
+    },
+    {
+      "id": "playmat-lipat",
+      "name": "Playmat Lipat Standard",
+      "category": "playmat",
+      "description": "Matras bermain lipat dengan bahan premium",
+      "basePrice": "Rp 1,200,000",
+      "basePriceNumeric": 1200000,
+      "features": [
+        "Bahan premium berkualitas",
+        "Anti-slip",
+        "Mudah dilipat",
+        "aman untuk bayi"
+      ]
+    },
+    {
+      "id": "coffee-series",
+      "name": "Coffee Series Edition",
+      "category": "custom",
+      "description": "Edisi khusus dengan warna-warna earth tone ala kopi",
+      "basePrice": "Rp 2,100,000",
+      "basePriceNumeric": 2100000,
+      "theme": "Coffee Series",
+      "colorPalette": [
+        "Beige",
+        "Cappuccino",
+        "Taupe",
+        "Mocca",
+        "Caramel"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "bumper",
+      "name": "Bumper Bed",
+      "description": "Pelindung ranjang bayi dengan bantalan empuk"
+    },
+    {
+      "id": "playmat",
+      "name": "Playmat",
+      "description": "Matras bermain dan belajar untuk bayi"
+    },
+    {
+      "id": "custom",
+      "name": "Custom Series",
+      "description": "Seri kustom dengan tema khusus"
+    }
+  ],
+  "colors": [
+    {"name": "White", "hex": "#FAF9F6"},
+    {"name": "Cream", "hex": "#FFFDD0"},
+    {"name": "Silver Grey", "hex": "#C0C0C0"},
+    {"name": "Grey", "hex": "#808080"},
+    {"name": "Baby Blue", "hex": "#89CFF0"},
+    {"name": "Cyan Blue", "hex": "#00FFFF"},
+    {"name": "Vector Blue", "hex": "#4169E1"},
+    {"name": "Mint Green", "hex": "#98FF98"},
+    {"name": "Loly Green", "hex": "#A8E6CF"},
+    {"name": "Beige", "hex": "#F5F5DC"},
+    {"name": "Cappuccino", "hex": "#C8A882"},
+    {"name": "Taupe", "hex": "#483C32"},
+    {"name": "Mocca", "hex": "#826C55"},
+    {"name": "Lilac", "hex": "#C8A2C8"},
+    {"name": "Peach", "hex": "#FFDAB9"},
+    {"name": "Flamingo Pink", "hex": "#FC8EAC"},
+    {"name": "Coral", "hex": "#FF7F50"},
+    {"name": "Caramel", "hex": "#C68E17"},
+    {"name": "Royal Blue", "hex": "#0F52BA"},
+    {"name": "Hip-hop Red", "hex": "#FF007F"},
+    {"name": "Orange", "hex": "#FFA500"},
+    {"name": "Hot Pink", "hex": "#FF69B4"},
+    {"name": "Army Green", "hex": "#4B5320"},
+    {"name": "Lemon", "hex": "#FFF700"}
+  ],
+  "animalThemes": [
+    "Lion",
+    "Bear",
+    "Rabbit",
+    "Cat",
+    "Dog",
+    "Elephant"
+  ],
+  "materials": {
+    "outerMaterial": "Premium PU Synthetic Leather",
+    "innerFoam": "Busa 4-5 cm (Padat & Empuk)",
+    "properties": [
+      "Medis",
+      "Hypoallergenic",
+      "Anti-air (Waterproof)",
+      "Mudah dibersihkan"
+    ]
+  },
+  "promo": {
+    "code": "PLAYBIE10",
+    "discount": "10%",
+    "description": "Diskon 10% untuk pembelian pertama"
+  }
+}

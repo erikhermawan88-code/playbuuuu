@@ -1,0 +1,60 @@
+{
+  "shipping": {
+    "note": "Khusus Barang Besar - Menggunakan Kurir Kargo",
+    "options": [
+      {
+        "id": "jne-trucking",
+        "name": "JNE JTR Trucking",
+        "price": 120000,
+        "priceFormatted": "Rp 120.000",
+        "estimation": "Estimasi 5-7 hari kerja"
+      },
+      {
+        "id": "sicepat-gokil",
+        "name": "SiCepat GOKIL Kargo",
+        "price": 110000,
+        "priceFormatted": "Rp 110.000",
+        "estimation": "Estimasi 4-6 hari kerja"
+      },
+      {
+        "id": "deli-custom",
+        "name": "Playbie Premium Delivery",
+        "price": 150000,
+        "priceFormatted": "Rp 150.000",
+        "estimation": "Hanya untuk Area Jabodetabek",
+        "coverage": "Jabodetabek"
+      }
+    ]
+  },
+  "paymentMethods": [
+    {
+      "id": "va-bca",
+      "name": "BCA Virtual Account",
+      "type": "Virtual Account",
+      "autoConfirmation": true
+    },
+    {
+      "id": "va-mandiri",
+      "name": "Mandiri Virtual Account",
+      "type": "Virtual Account"
+    },
+    {
+      "id": "gopay",
+      "name": "GoPay / QRIS",
+      "type": "E-Wallet"
+    },
+    {
+      "id": "credit-card",
+      "name": "Kartu Kredit / Debit Online",
+      "type": "Card"
+    }
+  ],
+  "checkout": {
+    "requiredFields": [
+      "Nama Lengkap",
+      "No. Telepon",
+      "Alamat Lengkap Pengiriman"
+    ],
+    "addressFormat": "Nama jalan, nomor rumah, RT/RW, kecamatan, kota, provinsi"
+  }
+}

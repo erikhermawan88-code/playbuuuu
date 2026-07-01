@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playbie | Luxury Custom Bumper Beds & Playmats</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Redesign premium Playbie e-commerce. Temukan Bumper Bed & Playmat mewah kustom 3D interaktif untuk kenyamanan terbaik bayi Anda.">
+  <meta name="keywords" content="Playbie, Bumper Bed, Bumper Box, Playmat Bayi, Custom Warna, Tempat Tidur Bayi">
+  <meta name="author" content="Playbie Indonesia">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Playbie | Luxury Custom Bumper Beds & Playmats">
+  <meta property="og:description" content="Redesign premium Playbie dengan Customizer 3D real-time. Sesuaikan warna produk bayi Anda sendiri.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asientoplaybie.com/">
+  <meta property="og:image" content="assets/pastel_bumper_bed.png">
+
+  <!-- Google Fonts - Load both font-families for dual themes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Theme A Fonts: Outfit & Inter | Theme B Fonts: Playfair Display & Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;600;700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Three.js and OrbitControls CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+  <!-- Local Styles -->
+  <link rel="stylesheet" href="style.css">
+<style>html { zoom: 0.7; }</style>
+  </head>
+<body class="theme-pastel"> <!-- Default to pastel theme, will toggled via JS -->
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <p>✨ Kustomisasi bumper bed & playmat Anda secara real-time dengan 3D Visualizer! Diskon 10% kode: <span class="promo-highlight">PLAYBIE10</span> ✨</p>
+  </div>
+
+  <!-- Header Nav -->
+  <header class="main-header" id="mainHeader">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <span class="logo-accent">play</span>bie
+      </a>
+      
+      <nav class="nav-links">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="index.html#customizer" class="nav-item">3D Customizer</a>
+        <a href="index.html#products" class="nav-item">Products</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Admin Portal Trigger Button -->
+        <button class="action-btn admin-trigger-btn" id="headerAdminTriggerBtn" title="Portal Admin Dashboard" style="display:none;">
+          <svg class="icon-svg inline-icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>Admin Portal</span>
+        </button>
+
+        <button class="action-btn cart-trigger" id="cartTrigger">
+          <div class="cart-icon-wrapper">
+            <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            <span class="cart-badge" id="cartBadgeCount">0</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Lookbook Section (Immersive Fullscreen Hero Slider) -->
+  <section class="lookbook-hero" id="hero">
+    <div class="hero-slides">
+      <!-- Slide 1 (Pastel Bumper Bed) -->
+      <div class="hero-slide active" id="slidePastel" style="background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.45)), url('assets/pastel_bumper_bed.png');">
+        <div class="hero-content">
+          <span class="hero-tag" id="cmsHeroTag">Aesthetic Comfort</span>
+          <h1 class="hero-title" id="cmsHeroTitle">Cloud Pastel<br>Dreamland</h1>
+          <p class="hero-description" id="cmsHeroDesc">Matras bermain dan pelindung ranjang bayi terlembut dengan warna pastel berestetika tinggi, dirancang untuk mendukung tumbuh kembang si kecil dengan keamanan maksimal.</p>
+          <div class="hero-buttons">
+            <a href="#customizer" class="btn btn-primary">Custom 3D Sekarang</a>
+            <a href="#products" class="btn btn-outline">Lihat Koleksi</a>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 2 (Nordic Playmat) -->
+      <div class="hero-slide" id="slideNordic" style="background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.45)), url('assets/nordic_playmat.png');">
+        <div class="hero-content">
+          <span class="hero-tag">Nordic Luxury</span>
+          <h1 class="hero-title">Nordic Minimalist<br>Living</h1>
+          <p class="hero-description">Keanggunan fungsional bergaya Skandinavia. Menghadirkan playmat mewah dengan nada bumi alami (earth-tones) yang berpadu selaras dalam keindahan interior rumah modern Anda.</p>
+          <div class="hero-buttons">
+            <a href="#customizer" class="btn btn-primary">Mulai Custom 3D</a>
+            <a href="#products" class="btn btn-outline">Eksplorasi Produk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Slide Controls -->
+    <div class="slide-nav">
+      <button class="slide-nav-btn active" onclick="switchHeroSlide(0)"></button>
+      <button class="slide-nav-btn" onclick="switchHeroSlide(1)"></button>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+      <span class="scroll-text">Scroll kebawah</span>
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+  <!-- Editorial Lookbook Grid Section (Fullscreen Display Aspect) -->
+  <section class="lookbook-gallery" id="lookbook">
+    <div class="section-container">
+      <div class="lookbook-intro">
+        <h2 class="section-title" id="cmsLookbookTitle">Designed for Modern Parenting</h2>
+        <p class="section-subtitle" id="cmsLookbookSubtitle">Keseimbangan sempurna antara keamanan bayi tercinta dan estetika ruang tamu minimalis Anda.</p>
+        <div style="margin-top: 16px; display: flex; justify-content: center;">
+          <a href="lookbook.html" class="btn btn-primary" style="padding: 10px 24px; border-radius: 30px; font-weight: 700; font-size: 13px; text-decoration: none; box-shadow: var(--shadow-sm); transition: all 0.2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
+            📖 Lihat Editorial Lookbook Lengkap →
+          </a>
+        </div>
+      </div>
+
+      <div class="lookbook-grid">
+        <div class="lookbook-card item-large">
+          <div class="lookbook-img-wrapper">
+            <img src="assets/pastel_bumper_bed.png" id="cmsLookbookImg1" alt="Aesthetic nursery playroom with baby bumper bed" loading="lazy">
+          </div>
+          <div class="lookbook-overlay">
+            <h3 id="cmsLookbookTitle1">Nursery Playroom</h3>
+            <p id="cmsLookbookDesc1">Ruang bermain penuh imajinasi dan kelembutan ekstra.</p>
+            <a href="#customizer" class="lookbook-link">Eksplorasi Customizer 3D →</a>
+          </div>
+        </div>
+
+        <div class="lookbook-card item-medium">
+          <div class="lookbook-img-wrapper">
+            <img src="assets/nordic_playmat.png" id="cmsLookbookImg2" alt="Nordic baby playmat in modern living room" loading="lazy">
+          </div>
+          <div class="lookbook-overlay">
+            <h3 id="cmsLookbookTitle2">Living Room Integration</h3>
+            <p id="cmsLookbookDesc2">Playmat yang menyatu sempurna dengan perabotan rumah mewah.</p>
+            <a href="#products" class="lookbook-link">Beli Koleksi Coffee Series →</a>
+          </div>
+        </div>
+
+        <div class="lookbook-card item-small">
+          <div class="lookbook-img-wrapper">
+            <img src="assets/material_texture.png" id="cmsLookbookImg3" alt="Playbie premium quilted leather texture details" loading="lazy">
+          </div>
+          <div class="lookbook-overlay">
+            <h3 id="cmsLookbookTitle3">Premium Texture</h3>
+            <p id="cmsLookbookDesc3">Bahan kulit vegan hypoallergenic bersertifikat yang anti-air dan mudah dibersihkan.</p>
+            <span class="lookbook-tag">Eco-Friendly Leather</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3D Interactive Customizer Section -->
+  <section class="customizer-section" id="customizer">
+    <div class="section-container">
+      <div class="lookbook-intro">
+        <h2 class="section-title">3D Interactive Customizer</h2>
+        <p class="section-subtitle">Pilih produk, putar 360 derajat, dan rancang sendiri kombinasi warna ideal Anda secara instan.</p>
+      </div>
+
+      <div class="customizer-wrapper">
+        <!-- 3D Canvas container -->
+        <div class="canvas-container">
+          <canvas id="customizerCanvas"></canvas>
+          <div class="canvas-overlay-ui">
+            <span class="instruction-badge">
+              <svg class="icon-svg inline-icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14h-2v-6h2zm0-8h-2V6h2z"/></svg>
+              Klik & seret untuk memutar | Scroll untuk zoom
+            </span>
+            <div class="canvas-controls">
+              <button class="canvas-action-btn" id="btnAutoRotate" title="Putar Otomatis">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46A7.93 7.93 0 0 0 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74A7.93 7.93 0 0 0 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
+              </button>
+              <button class="canvas-action-btn" id="btnResetCamera" title="Reset Tampilan">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 5V1L8 5l4 4V5zm-7 7c0 1.93.78 3.68 2.05 4.95L8.46 15.5A5.96 5.96 0 0 1 10 12H5zm14 0h-5c0 1.1-.38 2.1-.98 2.9l1.42 1.42C17.22 15.68 18 13.93 18 12z"/></svg>
+              </button>
+            </div>
+          </div>
+          <!-- 3D Loading spinner -->
+          <div class="canvas-loading" id="canvasLoading">
+            <div class="spinner"></div>
+            <p>Mempersiapkan Model 3D...</p>
+          </div>
+        </div>
+
+        <!-- Customizer control panel -->
+        <div class="customizer-controls">
+          <div class="customizer-header" style="margin-bottom: 15px;">
+            <h3 class="customizer-title" id="customizerTitle">Playbie 3D Customizer</h3>
+            <p class="customizer-desc" id="customizerDesc">Rancang bumper bed kustom Anda secara real-time. Pilih seri, ukuran, motif gambar, dan kombinasi warna favorit Anda.</p>
+          </div>
+
+          <div class="customizer-options">
+            
+            <div class="price-display-wrapper" style="margin-bottom: 20px;">
+              <span class="price-label">Estimasi Harga:</span>
+              <span class="price-value" id="customizerPrice">Rp 1,849,900</span>
+            </div>
+
+            <!-- Dropdown Pilihan Seri -->
+            <div class="control-group">
+              <label class="control-label">Pilih Seri Playbie:</label>
+              <select class="customizer-select" id="selectPlaybieSeries" style="width: 100%; padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background-color: var(--bg-surface); color: var(--text-main); font-weight: 600; cursor: pointer; transition: border-color 0.2s;">
+                <option value="color-series">Color Series (Polos Orisinil)</option>
+                <option value="animal-series-1">Series Animal 1</option>
+                <option value="animal-series-2">Series Animal 2</option>
+                <option value="doodle-series">Series Doodle</option>
+                <option value="mix-series">Mix Series</option>
+              </select>
+            </div>
+
+            <!-- Pilihan Ukuran Bumper Bed -->
+            <div class="control-group">
+              <label class="control-label">Pilih Ukuran Bumper Bed:</label>
+              <select class="customizer-select" id="selectCustomizerSize" style="width: 100%; padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background-color: var(--bg-surface); color: var(--text-main); font-weight: 600; cursor: pointer; transition: border-color 0.2s;">
+                <option value="150x150" selected>150 x 150 cm</option>
+              </select>
+            </div>
+
+
+            <!-- Dropdown Pilihan Dinding Motif -->
+            <div class="control-group hidden" id="motifWallSelectorGroup" style="display: none;">
+              <label class="control-label">Pilih Bagian Dinding untuk Motif:</label>
+              <select class="customizer-select" id="selectMotifWall" style="width: 100%; padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background-color: var(--bg-surface); color: var(--text-main); font-weight: 600; cursor: pointer; transition: border-color 0.2s;">
+                <option value="all">Semua Dinding Bumper</option>
+                <option value="leftWall">Bumper Kiri</option>
+                <option value="rightWall">Bumper Kanan</option>
+                <option value="frontWall">Bumper Depan</option>
+                <option value="backWall">Bumper Belakang</option>
+              </select>
+            </div>
+
+            <!-- Pilihan Gambar Motif Bergambar -->
+            <div class="control-group hidden" id="motifSelectorGroup" style="display: none;">
+              <label class="control-label">Pilih Gambar Motif:</label>
+              <div class="motif-options-grid" id="motifOptionsContainer" style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px;">
+                <!-- Dynamically populated via JS -->
+              </div>
+              <div id="selectedMotifNameDisplay" style="font-size: 11px; font-weight: 600; margin-top: 6px; color: var(--text-muted);">Motif Terpilih: -</div>
+            </div>
+
+            <!-- Part Selector (For Bumper Bed: Sides, Floor, Pillows) -->
+            <div class="control-group">
+              <label class="control-label">Pilih Bagian untuk Diwarnai (Solid Color):</label>
+              <div class="part-selectors" id="partSelectorContainer" style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px;">
+                <button class="part-btn active" data-part="leftWallOuter">Kiri (Luar)</button>
+                <button class="part-btn" data-part="leftWallInner">Kiri (Dalam)</button>
+                <button class="part-btn" data-part="rightWallOuter">Kanan (Luar)</button>
+                <button class="part-btn" data-part="rightWallInner">Kanan (Dalam)</button>
+                <button class="part-btn" data-part="frontWallOuter">Depan (Luar)</button>
+                <button class="part-btn" data-part="frontWallInner">Depan (Dalam)</button>
+                <button class="part-btn" data-part="backWallOuter">Belakang (Luar)</button>
+                <button class="part-btn" data-part="backWallInner">Belakang (Dalam)</button>
+                <button class="part-btn" data-part="floorMat1">Alas Kiri</button>
+                <button class="part-btn" data-part="floorMat2">Alas Tengah</button>
+                <button class="part-btn" data-part="floorMat3">Alas Kanan</button>
+              </div>
+            </div>
+
+            <!-- Color Palette Options -->
+            <div class="control-group">
+              <label class="control-label">Palet Warna Premium (Playbie Colours):</label>
+              <div class="color-palette-grid" id="playbieColoursPalette" style="display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px; margin-top: 8px;">
+                <button class="color-swatch-circle" data-color="#FAF9F6" style="background-color: #FAF9F6; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="White"></button>
+                <button class="color-swatch-circle" data-color="#FFFDD0" style="background-color: #FFFDD0; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Cream"></button>
+                <button class="color-swatch-circle" data-color="#C0C0C0" style="background-color: #C0C0C0; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Silver Grey"></button>
+                <button class="color-swatch-circle" data-color="#808080" style="background-color: #808080; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Grey"></button>
+                <button class="color-swatch-circle" data-color="#89CFF0" style="background-color: #89CFF0; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Baby Blue"></button>
+                <button class="color-swatch-circle" data-color="#00FFFF" style="background-color: #00FFFF; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Cyan Blue"></button>
+                <button class="color-swatch-circle" data-color="#4169E1" style="background-color: #4169E1; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Vector Blue"></button>
+                <button class="color-swatch-circle" data-color="#98FF98" style="background-color: #98FF98; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Mint Green"></button>
+                <button class="color-swatch-circle" data-color="#F5F5DC" style="background-color: #F5F5DC; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Beige"></button>
+                <button class="color-swatch-circle" data-color="#C8A882" style="background-color: #C8A882; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Cappuccino"></button>
+                <button class="color-swatch-circle" data-color="#483C32" style="background-color: #483C32; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Taupe"></button>
+                <button class="color-swatch-circle" data-color="#826C55" style="background-color: #826C55; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Mocca"></button>
+                <button class="color-swatch-circle" data-color="#C8A2C8" style="background-color: #C8A2C8; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Lilac"></button>
+                <button class="color-swatch-circle" data-color="#FFDAB9" style="background-color: #FFDAB9; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Peach"></button>
+                <button class="color-swatch-circle" data-color="#FC8EAC" style="background-color: #FC8EAC; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Flamingo Pink"></button>
+                <button class="color-swatch-circle" data-color="#FF7F50" style="background-color: #FF7F50; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Coral"></button>
+                <button class="color-swatch-circle" data-color="#C68E17" style="background-color: #C68E17; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Caramel"></button>
+                <button class="color-swatch-circle" data-color="#0F52BA" style="background-color: #0F52BA; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Royal Blue"></button>
+                <button class="color-swatch-circle" data-color="#FF007F" style="background-color: #FF007F; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Hip-hop Red"></button>
+                <button class="color-swatch-circle" data-color="#FFA500" style="background-color: #FFA500; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Orange"></button>
+                <button class="color-swatch-circle active" data-color="#A8E6CF" style="background-color: #A8E6CF; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Loly Green"></button>
+                <button class="color-swatch-circle" data-color="#FF69B4" style="background-color: #FF69B4; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Hot Pink"></button>
+                <button class="color-swatch-circle" data-color="#4B5320" style="background-color: #4B5320; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Army Green"></button>
+                <button class="color-swatch-circle" data-color="#FFF700" style="background-color: #FFF700; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: all 0.2s;" title="Lemon"></button>
+              </div>
+              <div id="selectedColorNameDisplay" style="font-size: 11px; font-weight: 600; margin-top: 6px; color: var(--text-muted);">Warna Terpilih: Loly Green</div>
+            </div>
+
+            <!-- Animal Sticker Selector (Only visible for themed series) -->
+            <div class="control-group" id="animalStickerGroup" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed var(--border-color);">
+              <label class="control-label">Tambah Karakter Animal (Seri Animal & Doodle):</label>
+              <div class="animal-palette-grid" id="animalPalette" style="display: flex; gap: 10px; margin-top: 8px;">
+                <button class="animal-swatch" data-animal="1" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--border-color); background: #fff; cursor: pointer; font-size: 24px; display: flex; align-items: center; justify-content: center; transition: all 0.2s;" title="Lion">🦁</button>
+                <button class="animal-swatch" data-animal="2" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--border-color); background: #fff; cursor: pointer; font-size: 24px; display: flex; align-items: center; justify-content: center; transition: all 0.2s;" title="Koala">🐨</button>
+                <button class="animal-swatch" data-animal="3" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--border-color); background: #fff; cursor: pointer; font-size: 24px; display: flex; align-items: center; justify-content: center; transition: all 0.2s;" title="Rabbit">🐰</button>
+                <button class="animal-swatch" data-animal="4" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--border-color); background: #fff; cursor: pointer; font-size: 24px; display: flex; align-items: center; justify-content: center; transition: all 0.2s;" title="Panda">🐼</button>
+                <button class="animal-swatch" data-animal="5" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--border-color); background: #fff; cursor: pointer; font-size: 24px; display: flex; align-items: center; justify-content: center; transition: all 0.2s;" title="Fox">🦊</button>
+                <button class="animal-swatch" data-animal="remove" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--border-color); background: #fee2e2; color: #ef4444; cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-weight: bold;" title="Hapus Animal">×</button>
+              </div>
+              <div id="selectedAnimalNameDisplay" style="font-size: 11px; font-weight: 600; margin-top: 6px; color: var(--text-muted);">Karakter Terpilih: -</div>
+              
+              <div style="margin-top: 10px;">
+                <label class="control-label" style="font-size: 12px;">Pilih Bagian untuk Menaruh Animal:</label>
+                <select class="customizer-select" id="selectAnimalSurface" style="width: 100%; padding: 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background-color: var(--bg-surface); color: var(--text-main); font-weight: 600; cursor: pointer; margin-top: 4px;">
+                  <option value="leftWallOuter">Dinding Kiri (Luar)</option>
+                  <option value="leftWallInner">Dinding Kiri (Dalam)</option>
+                  <option value="rightWallOuter">Dinding Kanan (Luar)</option>
+                  <option value="rightWallInner">Dinding Kanan (Dalam)</option>
+                  <option value="frontWallOuter">Dinding Depan (Luar)</option>
+                  <option value="frontWallInner">Dinding Depan (Dalam)</option>
+                  <option value="backWallOuter">Dinding Belakang (Luar)</option>
+                  <option value="backWallInner">Dinding Belakang (Dalam)</option>
+                  <option value="floorMat1">Alas Kiri</option>
+                  <option value="floorMat2">Alas Tengah</option>
+                  <option value="floorMat3">Alas Kanan</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Material Detail Display -->
+            <div class="material-info-card">
+              <div class="material-info-header">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10zm1-15h-2v2h2zm0 4h-2v6h2z"/></svg>
+                <span>Spesifikasi Material Kustom Anda</span>
+              </div>
+              <p>Kulit sintetis PU kualitas medis (Medical-Grade Polyurethane) dengan lapisan busa padat bersertifikat aman dari zat kimia berbahaya.</p>
+            </div>
+
+            <button class="btn btn-primary btn-full" id="btnAddCustomToCart">
+              <svg class="icon-svg inline-icon" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              Tambahkan Hasil Desain ke Keranjang
+            </button>
+          </div>
+        </div>       </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- E-Commerce Product Catalog Section -->
+  <section class="products-section" id="products">
+    <div class="section-container">
+      <div class="lookbook-intro">
+        <h2 class="section-title">Explore Catalog</h2>
+        <p class="section-subtitle">Pilih produk playmat dan bumper bed orisinil dengan kualitas pengerjaan terbaik.</p>
+      </div>
+
+      <!-- Catalog Controls -->
+      <div class="catalog-filters">
+        <div class="filter-group">
+          <button class="filter-btn active" data-category="all">Semua Produk</button>
+          <button class="filter-btn" data-category="bumper">Bumper Bed</button>
+          <button class="filter-btn" data-category="playmat">Playmat</button>
+          <button class="filter-btn" data-category="custom">Custom Series</button>
+        </div>
+        <div class="search-sort-group">
+          <div class="search-box">
+            <input type="text" id="catalogSearch" placeholder="Cari produk...">
+            <svg class="icon-svg search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          </div>
+          <select class="sort-select" id="catalogSort">
+            <option value="default">Urutkan</option>
+            <option value="price-asc">Harga Terendah</option>
+            <option value="price-desc">Harga Tertinggi</option>
+            <option value="popular">Terpopuler</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Products will generated dynamically via JS, template below for fallback -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Side Shopping Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Keranjang Belanja (<span id="cartCountTitle">0</span>)</h3>
+      <button class="close-btn" id="closeCartDrawer">
+        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Empty State -->
+    <div class="cart-empty-state" id="cartEmptyState">
+      <div class="empty-icon-wrapper">
+        <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      </div>
+      <p>Keranjang belanja Anda masih kosong.</p>
+      <button class="btn btn-outline" id="btnContinueShopping">Mulai Belanja</button>
+    </div>
+
+    <!-- Cart items list -->
+    <div class="cart-items" id="cartItemsList">
+      <!-- Generated via JS -->
+    </div>
+
+    <!-- Cart Footer Summary -->
+    <div class="cart-footer" id="cartFooter">
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">Rp 0</span>
+      </div>
+      <div class="summary-row promo-applied-row hidden" id="promoAppliedRow">
+        <span class="promo-label">Promo Diskon (10%)</span>
+        <span class="promo-discount" id="cartDiscountValue">-Rp 0</span>
+      </div>
+      
+      <!-- Promo Code Field -->
+      <div class="promo-code-box">
+        <input type="text" id="promoCodeInput" placeholder="Masukkan Kode Promo">
+        <button class="btn-apply-promo" id="btnApplyPromo">Gunakan</button>
+      </div>
+      <div id="promoFeedback" class="promo-feedback"></div>
+
+      <div class="summary-row total-row">
+        <span>Total Pembayaran</span>
+        <span id="cartTotal">Rp 0</span>
+      </div>
+
+      <button class="btn btn-primary btn-full checkout-btn" id="btnCheckoutTrigger">
+        Lanjutkan Ke Pembayaran
+        <svg class="icon-svg inline-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Fullscreen Simulated Checkout Modal -->
+  <div class="checkout-overlay" id="checkoutOverlay">
+    <div class="checkout-card">
+      <div class="checkout-card-header">
+        <h2>Simulasi Checkout Premium</h2>
+        <button class="close-btn" id="closeCheckout">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="checkout-body">
+        <!-- Billing/Shipping details -->
+        <div class="checkout-form-container">
+          <h3>Informasi Pengiriman</h3>
+          <form class="checkout-form" id="checkoutForm" onsubmit="event.preventDefault(); submitOrder();">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fullName">Nama Lengkap *</label>
+                <input type="text" id="fullName" required placeholder="Contoh: Rian Pratama">
+              </div>
+              <div class="form-group">
+                <label for="phoneNumber">No. Telepon *</label>
+                <input type="tel" id="phoneNumber" required placeholder="Contoh: 0812XXXXXXXX">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="shippingAddress">Alamat Lengkap Pengiriman *</label>
+              <textarea id="shippingAddress" rows="3" required placeholder="Nama jalan, nomor rumah, RT/RW, kecamatan, kota, provinsi"></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="shippingCarrier">Opsi Kurir Kargo (Khusus Barang Besar)</label>
+                <select id="shippingCarrier">
+                  <option value="jne-trucking">JNE JTR Trucking (Estimasi Rp 120.000)</option>
+                  <option value="sicepat-gokil">SiCepat GOKIL Kargo (Estimasi Rp 110.000)</option>
+                  <option value="deli-custom">Playbie Premium Delivery - Jabodetabek (Rp 150.000)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="paymentMethod">Metode Pembayaran</label>
+                <select id="paymentMethod">
+                  <option value="va-bca">BCA Virtual Account (Otomatis)</option>
+                  <option value="va-mandiri">Mandiri Virtual Account</option>
+                  <option value="gopay">GoPay / QRIS</option>
+                  <option value="credit-card">Kartu Kredit / Debit Online</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full checkout-submit-btn">
+              Konfirmasi Pemesanan & Bayar Sekarang
+            </button>
+          </form>
+        </div>
+
+        <!-- Checkout Summary Sidebar -->
+        <div class="checkout-summary-sidebar">
+          <h3>Ringkasan Pesanan</h3>
+          <div class="checkout-summary-items" id="checkoutSummaryItemsList">
+            <!-- Dynamic items -->
+          </div>
+          <div class="checkout-pricing">
+            <div class="pricing-line">
+              <span>Subtotal Produk</span>
+              <span id="checkoutSubtotal">Rp 0</span>
+            </div>
+            <div class="pricing-line discount-row hidden" id="checkoutDiscountRow">
+              <span>Diskon</span>
+              <span id="checkoutDiscountValue">-Rp 0</span>
+            </div>
+            <div class="pricing-line">
+              <span>Kargo Pengiriman</span>
+              <span id="checkoutShipping">Rp 120,000</span>
+            </div>
+            <div class="pricing-line grand-total">
+              <span>Total Akhir</span>
+              <span id="checkoutGrandTotal">Rp 0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Success Confirmation Modal (Receipt Showcase) -->
+  <div class="success-overlay" id="successOverlay">
+    <div class="success-card">
+      <div class="success-icon-container">
+        <svg class="success-checkmark" viewBox="0 0 52 52">
+          <circle class="success-checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+          <path class="success-checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+      </div>
+      <h2>Pemesanan Berhasil!</h2>
+      <p>Terima kasih telah berbelanja di Playbie Redesign. Pembayaran Anda telah kami verifikasi secara simulasi.</p>
+      
+      <div class="receipt-box">
+        <div class="receipt-header">
+          <h4>KWITANSI DIGITAL</h4>
+          <span id="receiptId">PLAYBIE-98234120938</span>
+        </div>
+        <div class="receipt-divider"></div>
+        <div class="receipt-info">
+          <div class="receipt-row">
+            <span>Pembeli:</span>
+            <span id="receiptName">John Doe</span>
+          </div>
+          <div class="receipt-row">
+            <span>Pengiriman Ke:</span>
+            <span id="receiptAddress">Jakarta, Indonesia</span>
+          </div>
+          <div class="receipt-row">
+            <span>Metode:</span>
+            <span id="receiptPayment">BCA Virtual Account</span>
+          </div>
+        </div>
+        <div class="receipt-divider"></div>
+        <div class="receipt-items" id="receiptItems">
+          <!-- Dynamic receipt items -->
+        </div>
+        <div class="receipt-divider"></div>
+        <div class="receipt-total-row">
+          <span>TOTAL DIBAYAR</span>
+          <span id="receiptTotal">Rp 3,219,900</span>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" id="btnBackToHome">Selesai & Kembali ke Home</button>
+    </div>
+  </div>
+
+  <!-- Product Detail Modal (Catalog Pop-up) -->
+  <div class="detail-overlay" id="detailOverlay">
+    <div class="detail-card">
+      <button class="close-btn" id="closeDetailModal">
+        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="detail-card-body">
+        <div class="detail-image-side" style="display: flex; flex-direction: column; gap: 16px; align-items: center; width: 45%;">
+          <div class="detail-main-image-wrapper" style="width: 100%; border-radius: 16px; overflow: hidden; background-color: var(--color-bg); box-shadow: var(--shadow-sm); aspect-ratio: 1.2; display: flex; align-items: center; justify-content: center;">
+            <img src="" id="detailModalImage" alt="Detail Image" style="width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s ease;">
+          </div>
+          <!-- Clickable gallery thumbnails grid -->
+          <div class="detail-thumbnails-grid" id="detailModalThumbnailsGrid" style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; width: 100%;">
+            <!-- Dynamic thumbnails generated in JS -->
+          </div>
+        </div>
+        <div class="detail-info-side">
+          <span class="detail-badge" id="detailModalBadge">Populer</span>
+          <h2 id="detailModalName">Product Name</h2>
+          <div class="detail-price" id="detailModalPrice">Rp 0</div>
+          <p id="detailModalDesc">Product long description text...</p>
+          
+          <div class="detail-specs">
+            <h4>Spesifikasi Produk:</h4>
+            <ul>
+              <li><strong>Ukuran:</strong> <span id="detailSpecSize">150 x 100 cm</span></li>
+              <li><strong>Ketebalan Busa:</strong> 4 - 5 cm (Padat & Empuk)</li>
+              <li><strong>Bahan:</strong> Premium PU Synthetic Leather (Medis, Hypoallergenic)</li>
+              <li><strong>Sifat Bahan:</strong> Anti-air (Waterproof), Sangat mudah dibersihkan</li>
+            </ul>
+          </div>
+
+          <div class="detail-actions">
+            <button class="btn btn-primary btn-full" id="btnDetailAddToCart">
+              Tambahkan ke Keranjang
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Footer Area with Admin Trigger -->
+  <!-- Footer Area with Sitemap & Google Maps Integration -->
+  <footer class="main-footer">
+    <div class="footer-detailed-grid">
+      <!-- Column 1: Brand Info -->
+      <div class="footer-brand-column">
+        <a href="#" class="logo" style="font-size: 28px; margin-bottom: 12px; display: inline-block;">
+          <span class="logo-accent">play</span>bie
+        </a>
+        <p class="footer-brand-desc">Playbie menghadirkan perlindungan bayi termewah dengan sentuhan warna pastel cozy minimalis untuk menjaga keamanan tumbuh kembang buah hati Anda di dalam ruang keluarga yang elegan.</p>
+        
+        <div class="footer-socials">
+          <a href="#" class="social-icon" title="Instagram">
+            <svg class="icon-svg" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg>
+          </a>
+          <a href="#" class="social-icon" title="Facebook">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-icon" title="TikTok">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+          </a>
+        </div>
+
+        <button class="footer-admin-trigger" id="footerAdminTrigger" style="display:none;"><svg class="icon-svg inline-icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Portal Command Admin</button>
+      </div>
+
+      <!-- Column 2: Sitemap Koleksi -->
+      <div class="footer-links-column">
+        <h4>Koleksi Premium</h4>
+        <ul class="footer-links-list">
+          <li><a href="#products">Bumper Bed Premium</a></li>
+          <li><a href="#products">Playmat Lipat Standard</a></li>
+          <li><a href="#products">Coffee Series Edition</a></li>
+          <li><a href="#customizer">Kustomizer Warna 3D</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Sitemap Bantuan -->
+      <div class="footer-links-column">
+        <h4>Bantuan & Info</h4>
+        <ul class="footer-links-list">
+          <li><a href="#">Panduan Perawatan Kulit PU</a></li>
+          <li><a href="#">Sertifikasi Hypoallergenic</a></li>
+          <li><a href="#">Kebijakan Pengembalian</a></li>
+          <li><a href="#">Pertanyaan Umum (FAQ)</a></li>
+          <li><a href="https://wa.me/628123456789" target="_blank" style="color: var(--color-primary); font-weight: 600;">Hubungi Whatsapp CS 💬</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Showroom & Google Maps -->
+      <div class="footer-maps-column">
+        <h4>Showroom Boutique</h4>
+        <div class="footer-map-wrapper">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2546059296564!2d106.80665791476915!3d-6.229379595490729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1505c879d71%3A0xe54e60155b4fb1e8!2sSenopati%2C%20Kec.%20Kby.%20Baru%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1653456789012!5m2!1sid!2sid" width="100%" height="120" style="border:0; border-radius:12px; box-shadow: var(--shadow-sm);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <p class="footer-address">
+          📍 <strong>Playbie Grand Showroom</strong><br>
+          Jl. Senopati No. 82, Kebayoran Baru, Jakarta Selatan
+        </p>
+      </div>
+    </div>
+
+    <!-- Bottom copyright -->
+    <div class="footer-bottom">
+      <p>&copy; 2026 Playbie Indonesia. Redesign Premium E-Commerce dengan 3D Visualizer & CMS Terintegrasi.</p>
+    </div>
+  </footer>
+
+  <!-- 1. ADMIN LOGIN OVERLAY (Glassmorphic Interface) -->
+  <div class="admin-login-overlay" id="adminLoginOverlay">
+    <div class="admin-login-card">
+      <div class="login-header">
+        <div class="lock-avatar">
+          <svg class="icon-svg" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h2>Playbie Admin Login</h2>
+        <p>Hubungkan ke backend e-commerce secara terintegrasi</p>
+      </div>
+
+      <div class="login-feedback error hidden" id="adminLoginFeedback"></div>
+
+      <form class="login-form" id="adminLoginForm" onsubmit="event.preventDefault(); handleAdminLogin();">
+        <div class="form-group">
+          <label for="adminUsername">Username Admin</label>
+          <input type="text" id="adminUsername" required placeholder="Default: admin">
+        </div>
+        <div class="form-group">
+          <label for="adminPassword">Password</label>
+          <input type="password" id="adminPassword" required placeholder="Default: playbieadmin123">
+        </div>
+        <button type="submit" class="btn btn-primary btn-full login-btn">
+          Masuk Ke Command Center
+        </button>
+        <button type="button" class="btn btn-outline btn-full close-login-btn" id="btnCancelAdminLogin">
+          Kembali Ke Toko
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. FULLSCREEN ADMIN DASHBOARD COMMAND CENTER -->
+  <div class="admin-dashboard-overlay" id="adminDashboardOverlay">
+    <div class="admin-dashboard-container">
+      
+      <!-- Dashboard Top Header -->
+      <header class="dashboard-header">
+        <div class="dash-logo">
+          <span>play</span>bie <span class="badge-dash">Command Center</span>
+        </div>
+        <div class="dash-user-info">
+          <span class="active-user-dot"></span>
+          <span>Admin Aktif: <strong id="dashAdminName">admin</strong></span>
+          <button class="btn-dash-logout" id="btnAdminLogout" title="Keluar dari Dashboard">
+            <svg class="icon-svg inline-icon" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+            Keluar
+          </button>
+        </div>
+      </header>
+
+      <!-- Dashboard Stats Panel -->
+      <section class="dashboard-stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon-wrapper rev-icon">
+            <svg class="icon-svg" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-label">Total Omset Penjualan</span>
+            <h3 class="stat-value" id="statRevenue">Rp 0</h3>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-wrapper order-icon">
+            <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-label">Total Pesanan Masuk</span>
+            <h3 class="stat-value" id="statOrdersCount">0 Pesanan</h3>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-wrapper prod-icon">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-label">Total Produk Aktif</span>
+            <h3 class="stat-value" id="statProductsCount">6 Produk</h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dashboard Tabs Navigator -->
+      <nav class="dashboard-tabs">
+        <button class="dash-tab-btn active" id="tabBtnProducts">
+          <svg class="icon-svg inline-icon" viewBox="0 0 24 24"><path d="M20 7h-9L9 5H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/></svg>
+          Katalog Produk
+        </button>
+        <button class="dash-tab-btn" id="tabBtnOrders">
+          <svg class="icon-svg inline-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Monitor Pesanan Masuk
+        </button>
+        <button class="dash-tab-btn" id="tabBtnCMS">
+          <svg class="icon-svg inline-icon" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4Z"/></svg>
+          Edit Teks & Unggah Foto (CMS)
+        </button>
+      </nav>
+
+      <!-- Dashboard Tab 1: Products Manager -->
+      <div class="dashboard-panel active" id="panelProducts">
+        <div class="panel-action-bar">
+          <h4>Daftar Katalog Produk E-Commerce</h4>
+          <button class="btn btn-primary" id="btnAddNewProduct">
+            <svg class="icon-svg inline-icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Tambah Produk Baru
+          </button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="dash-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Foto</th>
+                <th>Nama Produk</th>
+                <th>Kategori</th>
+                <th>Ukuran</th>
+                <th>Harga</th>
+                <th>Stok Gudang</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="dashProductsTableBody">
+              <!-- Dynamically populated via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Dashboard Tab 2: Orders Monitor -->
+      <div class="dashboard-panel" id="panelOrders">
+        <div class="panel-action-bar">
+          <h4>Monitor Transaksi & Pembelian Bayi</h4>
+          <span class="refresh-indicator">Pembaruan asinkron otomatis terintegrasi</span>
+        </div>
+
+        <!-- Orders empty state -->
+        <div class="orders-empty-state hidden" id="dashOrdersEmptyState">
+          <div class="empty-icon-wrapper">
+            <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          </div>
+          <p>Belum ada transaksi pembelian e-commerce masuk.</p>
+        </div>
+
+        <div class="orders-monitor-list" id="dashOrdersList">
+          <!-- Dynamically populated order cards via JS -->
+        </div>
+      </div>
+
+      <!-- Dashboard Tab 3: CMS Content Manager -->
+      <div class="dashboard-panel" id="panelCMS">
+        <div class="panel-action-bar">
+          <h4>Manajemen Konten Teks & Media (CMS)</h4>
+          <span class="refresh-indicator">Edit langsung materi web di sini</span>
+        </div>
+
+        <div class="cms-editor-wrapper">
+          <!-- Left side: Text Inputs -->
+          <div class="cms-text-fields">
+            <form id="cmsContentForm" onsubmit="event.preventDefault(); submitCMSContent();">
+              
+              <div class="cms-form-section">
+                <h5>1. Hero Banner Utama</h5>
+                <div class="form-group">
+                  <label for="cmsInputHeroTag">Tag Kecil Hero</label>
+                  <input type="text" id="cmsInputHeroTag" required placeholder="Contoh: Aesthetic Comfort">
+                </div>
+                <div class="form-group">
+                  <label for="cmsInputHeroTitle">Judul Utama Hero (Gunakan &lt;br&gt; untuk baris baru)</label>
+                  <input type="text" id="cmsInputHeroTitle" required placeholder="Contoh: Cloud Pastel<br>Dreamland">
+                </div>
+                <div class="form-group">
+                  <label for="cmsInputHeroDesc">Deskripsi Singkat Hero</label>
+                  <textarea id="cmsInputHeroDesc" rows="3" required placeholder="Tulis deskripsi spanduk hero..."></textarea>
+                </div>
+              </div>
+
+              <div class="cms-form-section">
+                <h5>2. Lookbook Gallery</h5>
+                <div class="form-group">
+                  <label for="cmsInputLookbookTitle">Judul Lookbook</label>
+                  <input type="text" id="cmsInputLookbookTitle" required placeholder="Contoh: Designed for Modern Parenting">
+                </div>
+                <div class="form-group">
+                  <label for="cmsInputLookbookSubtitle">Sub-deskripsi Lookbook</label>
+                  <textarea id="cmsInputLookbookSubtitle" rows="2" required placeholder="Tulis sub-deskripsi lookbook..."></textarea>
+                </div>
+              <div class="cms-form-section">
+                <h5>3. Lookbook Card 1 (Large - Nursery Room)</h5>
+                <div class="form-group">
+                  <label for="cmsInputLookbookCardTitle1">Judul Kartu 1</label>
+                  <input type="text" id="cmsInputLookbookCardTitle1" required placeholder="Contoh: Nursery Playroom">
+                </div>
+                <div class="form-group">
+                  <label for="cmsInputLookbookCardDesc1">Deskripsi Kartu 1</label>
+                  <textarea id="cmsInputLookbookCardDesc1" rows="2" required placeholder="Tulis deskripsi kartu 1..."></textarea>
+                </div>
+                <div class="form-group">
+                  <label>Gambar Kartu 1</label>
+                  <div class="cms-card-upload-row" style="display: flex; gap: 16px; align-items: center; margin-top: 8px;">
+                    <img id="cmsLookbookCardPreview1" src="assets/pastel_bumper_bed.png" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover; border: 1px solid var(--border-color);">
+                    <label for="cmsInputLookbookCardFile1" class="cms-file-upload-label" style="cursor: pointer; padding: 8px 16px; font-size: 11px; margin: 0; display: inline-flex; align-items: center; gap: 6px;">
+                      <svg class="icon-svg" viewBox="0 0 24 24" style="width: 14px; height: 14px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+                      Pilih Foto Card 1
+                    </label>
+                    <input type="file" id="cmsInputLookbookCardFile1" accept="image/*" style="display: none;">
+                    <span id="cmsInputLookbookCardStatus1" style="font-size: 11px; color: var(--text-muted);">Belum diganti</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cms-form-section">
+                <h5>4. Lookbook Card 2 (Medium - Living Room)</h5>
+                <div class="form-group">
+                  <label for="cmsInputLookbookCardTitle2">Judul Kartu 2</label>
+                  <input type="text" id="cmsInputLookbookCardTitle2" required placeholder="Contoh: Living Room Integration">
+                </div>
+                <div class="form-group">
+                  <label for="cmsInputLookbookCardDesc2">Deskripsi Kartu 2</label>
+                  <textarea id="cmsInputLookbookCardDesc2" rows="2" required placeholder="Tulis deskripsi kartu 2..."></textarea>
+                </div>
+                <div class="form-group">
+                  <label>Gambar Kartu 2</label>
+                  <div class="cms-card-upload-row" style="display: flex; gap: 16px; align-items: center; margin-top: 8px;">
+                    <img id="cmsLookbookCardPreview2" src="assets/nordic_playmat.png" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover; border: 1px solid var(--border-color);">
+                    <label for="cmsInputLookbookCardFile2" class="cms-file-upload-label" style="cursor: pointer; padding: 8px 16px; font-size: 11px; margin: 0; display: inline-flex; align-items: center; gap: 6px;">
+                      <svg class="icon-svg" viewBox="0 0 24 24" style="width: 14px; height: 14px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+                      Pilih Foto Card 2
+                    </label>
+                    <input type="file" id="cmsInputLookbookCardFile2" accept="image/*" style="display: none;">
+                    <span id="cmsInputLookbookCardStatus2" style="font-size: 11px; color: var(--text-muted);">Belum diganti</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cms-form-section">
+                <h5>5. Lookbook Card 3 (Small - Premium Texture)</h5>
+                <div class="form-group">
+                  <label for="cmsInputLookbookCardTitle3">Judul Kartu 3</label>
+                  <input type="text" id="cmsInputLookbookCardTitle3" required placeholder="Contoh: Premium Texture">
+                </div>
+                <div class="form-group">
+                  <label for="cmsInputLookbookCardDesc3">Deskripsi Kartu 3</label>
+                  <textarea id="cmsInputLookbookCardDesc3" rows="2" required placeholder="Tulis deskripsi kartu 3..."></textarea>
+                </div>
+                <div class="form-group">
+                  <label>Gambar Kartu 3</label>
+                  <div class="cms-card-upload-row" style="display: flex; gap: 16px; align-items: center; margin-top: 8px;">
+                    <img id="cmsLookbookCardPreview3" src="assets/material_texture.png" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover; border: 1px solid var(--border-color);">
+                    <label for="cmsInputLookbookCardFile3" class="cms-file-upload-label" style="cursor: pointer; padding: 8px 16px; font-size: 11px; margin: 0; display: inline-flex; align-items: center; gap: 6px;">
+                      <svg class="icon-svg" viewBox="0 0 24 24" style="width: 14px; height: 14px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+                      Pilih Foto Card 3
+                    </label>
+                    <input type="file" id="cmsInputLookbookCardFile3" accept="image/*" style="display: none;">
+                    <span id="cmsInputLookbookCardStatus3" style="font-size: 11px; color: var(--text-muted);">Belum diganti</span>
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full" id="btnSaveCMSContent">
+                Simpan Perubahan Teks & Gambar Halaman
+              </button>
+            </form>
+          </div>
+
+          <!-- Right side: Image uploader & path picker -->
+          <div class="cms-image-uploader">
+            <h5>3. Unggah Foto Hero Baru</h5>
+            <p class="cms-upload-help">Unggah file foto kamar bayi untuk mengganti gambar spanduk utama website.</p>
+            
+            <div class="cms-image-preview-container">
+              <img id="cmsHeroPreview" src="assets/pastel_bumper_bed.png" alt="Hero Image Preview">
+              <div class="preview-overlay-label">Gambar Utama Aktif</div>
+            </div>
+
+            <!-- Upload Controls -->
+            <div class="cms-file-input-group">
+              <label for="cmsImageFileInput" class="cms-file-upload-label">
+                <svg class="icon-svg inline-icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+                Pilih File Foto Baru
+              </label>
+              <input type="file" id="cmsImageFileInput" accept="image/*" style="display: none;">
+              <span id="cmsUploadStatus" class="upload-status-label">Belum ada file dipilih</span>
+            </div>
+            
+            <div class="upload-progress-container hidden" id="uploadProgressBox">
+              <div class="spinner"></div>
+              <span>Mengunggah berkas biner asinkron...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3. ADD / EDIT PRODUCT MODAL FORM -->
+  <div class="product-form-overlay" id="productFormOverlay">
+    <div class="product-form-card">
+      <div class="product-form-header">
+        <h3 id="productFormTitle">Tambah Produk Baru</h3>
+        <button class="close-btn" id="btnCloseProductForm">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <form class="product-form" id="productForm" onsubmit="event.preventDefault(); submitProductForm();">
+        <input type="hidden" id="formProductId">
+        
+        <div class="form-group">
+          <label for="formProductName">Nama Produk *</label>
+          <input type="text" id="formProductName" required placeholder="Contoh: Playbie Playmat Model Lipat Premium">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="formProductCategory">Kategori *</label>
+            <select id="formProductCategory" required>
+              <option value="bumper">Bumper Bed</option>
+              <option value="playmat">Playmat</option>
+              <option value="custom">Custom Series</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="formProductSize">Ukuran Produk</label>
+            <input type="text" id="formProductSize" placeholder="Contoh: 150 x 100 cm">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="formProductPrice">Harga (IDR) *</label>
+            <input type="number" id="formProductPrice" required placeholder="Contoh: 1849900">
+          </div>
+          <div class="form-group">
+            <label for="formProductStock">Stok *</label>
+            <input type="number" id="formProductStock" required placeholder="Contoh: 100">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="formProductBadge">Lencana (Badge)</label>
+            <input type="text" id="formProductBadge" placeholder="Contoh: Popular / Favorite">
+          </div>
+          <div class="form-group">
+            <label for="formProductBadgeType">Tipe Lencana</label>
+            <select id="formProductBadgeType">
+              <option value="popular">Popular (Red/Pink)</option>
+              <option value="favorite">Favorite (Blue/Orange)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Unggah Foto Produk (Maksimal 5 Foto) *</label>
+          <div class="cms-file-input-group" style="margin-bottom: 12px;">
+            <label for="formProductImageFiles" class="cms-file-upload-label" style="cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+              <svg class="icon-svg inline-icon" viewBox="0 0 24 24" style="width: 20px; height: 20px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+              Pilih Foto Produk Baru (Bisa Multi)...
+            </label>
+            <input type="file" id="formProductImageFiles" accept="image/*" multiple style="display: none;">
+            <span id="formProductUploadStatus" class="upload-status-label">Belum ada file dipilih (Maks. 5)</span>
+          </div>
+          <!-- Thumbnail previews container for uploaded photos -->
+          <div class="product-images-preview-list" id="formProductImagesPreviewList" style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px;"></div>
+          <!-- Keep formProductImage hidden as back-compatibility fallback for primary thumbnail -->
+          <input type="hidden" id="formProductImage">
+          
+          <div class="upload-progress-container hidden" id="formProductUploadProgressBox">
+            <div class="spinner"></div>
+            <span>Mengunggah foto produk...</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="formProductDesc">Deskripsi Produk</label>
+          <textarea id="formProductDesc" rows="3" placeholder="Tulis deskripsi detail produk bayi..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full" id="btnSubmitProductForm">
+          Simpan Produk Ke Katalog
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Initial script imports -->
+  <script src="viewer3d.js"></script>
+  <script src="app.js"></script>
+
+<script>
+(function() {
+  // Hero slider auto-rotate
+  function initHeroSlider() {
+    var slides = document.querySelectorAll('.hero-slide');
+    var navBtns = document.querySelectorAll('.slide-nav-btn');
+    if (slides.length < 2) return;
+    var current = 0;
+    function show(n) {
+      slides.forEach(function(s, i) {
+        s.classList.toggle('active', i === n);
+      });
+      navBtns.forEach(function(b, i) {
+        b.classList.toggle('active', i === n);
+      });
+      current = n;
+    }
+    function next() { show((current + 1) % slides.length); }
+    // Click handlers
+    navBtns.forEach(function(btn, i) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        show(i);
+        clearInterval(timer);
+        timer = setInterval(next, 6000);
+      });
+    });
+    // Auto-rotate every 6 seconds
+    var timer = setInterval(next, 6000);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeroSlider);
+  } else {
+    initHeroSlider();
+  }
+})();
+</script>
+
+  // Auto-show admin overlay when accessed via /#admin
+  if (window.location.hash === '#admin') {
+    document.addEventListener('DOMContentLoaded', function() {
+      var overlay = document.getElementById('adminLoginOverlay');
+      if (overlay) {
+        overlay.classList.add('active');
+      }
+    });
+  }
+
+
+<script>
+  // Auto-show admin overlay when accessed via /#admin
+  (function() {
+    function showAdmin() {
+      var el = document.querySelector('.admin-login-overlay');
+      if (el) el.classList.add('active');
+    }
+    if (window.location.hash === '#admin') {
+      showAdmin();
+    }
+  })();
+</script>
+</body>
+</html>
