@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playbie Admin - E-Commerce Dashboard</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f6fa; color: #2d3436; }
+    
+    .header { background: #2d3436; color: white; padding: 20px 30px; display: flex; justify-content: space-between; align-items: center; }
+    .header h1 { font-size: 24px; }
+    .header .badge { background: #ee4d2d; padding: 5px 12px; border-radius: 20px; font-size: 14px; }
+    
+    .nav { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .nav-tabs { display: flex; list-style: none; }
+    .nav-tabs li { padding: 15px 25px; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.2s; }
+    .nav-tabs li:hover { background: #f8f9fa; }
+    .nav-tabs li.active { border-color: #ee4d2d; color: #ee4d2d; font-weight: 600; }
+    
+    .container { max-width: 1400px; margin: 0 auto; padding: 30px; }
+    
+    /* Stats */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 30px; }
+    .stat-card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 2px 15px rgba(0,0,0,0.08); }
+    .stat-card .label { font-size: 14px; color: #888; margin-bottom: 8px; }
+    .stat-card .value { font-size: 32px; font-weight: 700; color: #2d3436; }
+    .stat-card .sub { font-size: 13px; color: #888; margin-top: 5px; }
+    .stat-card.orders { border-left: 4px solid #0984e3; }
+    .stat-card.pending { border-left: 4px solid #fdcb6e; }
+    .stat-card.revenue { border-left: 4px solid #00b894; }
+    .stat-card.stock { border-left: 4px solid #e17055; }
+    
+    /* Table */
+    .card { background: white; border-radius: 15px; box-shadow: 0 2px 15px rgba(0,0,0,0.08); overflow: hidden; margin-bottom: 30px; }
+    .card-header { padding: 20px 25px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+    .card-header h2 { font-size: 18px; }
+    .card-header .actions { display: flex; gap: 10px; }
+    
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 15px 20px; text-align: left; border-bottom: 1px solid #eee; }
+    th { background: #f8f9fa; font-weight: 600; font-size: 13px; text-transform: uppercase; color: #666; }
+    tr:hover { background: #f8f9fa; }
+    
+    .order-id { font-family: monospace; background: #f0f0f0; padding: 4px 8px; border-radius: 5px; font-size: 13px; }
+    .status { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+    .status.pending { background: #fff3cd; color: #856404; }
+    .status.confirmed { background: #d4edda; color: #155724; }
+    .status.shipped { background: #cce5ff; color: #004085; }
+    .status.delivered { background: #d1e7dd; color: #0f5132; }
+    .status.cancelled { background: #f8d7da; color: #721c24; }
+    
+    .payment-status { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+    .payment-status.unpaid { background: #f8d7da; color: #721c24; }
+    .payment-status.paid { background: #d4edda; color: #155724; }
+    
+    .btn { padding: 8px 16px; border-radius: 8px; border: none; cursor: pointer; font-size: 14px; font-weight: 500; transition: all 0.2s; }
+    .btn-primary { background: #0984e3; color: white; }
+    .btn-primary:hover { background: #0770c2; }
+    .btn-success { background: #00b894; color: white; }
+    .btn-success:hover { background: #009975; }
+    .btn-danger { background: #d63031; color: white; }
+    .btn-danger:hover { background: #b71c1c; }
+    .btn-warning { background: #fdcb6e; color: #2d3436; }
+    .btn-warning:hover { background: #f9bf3b; }
+    .btn-sm { padding: 5px 10px; font-size: 12px; }
+    
+    /* Forms */
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; margin-bottom: 5px; font-weight: 500; font-size: 14px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #0984e3; }
+    
+    /* Modal */
+    .modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center; }
+    .modal.active { display: flex; }
+    .modal-content { background: white; padding: 30px; border-radius: 15px; width: 90%; max-width: 600px; max-height: 90vh; overflow-y: auto; }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .modal-header h3 { font-size: 20px; }
+    .modal-close { width: 35px; height: 35px; border-radius: 50%; background: #f0f0f0; border: none; cursor: pointer; font-size: 18px; }
+    
+    /* Tabs content */
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    
+    /* Product grid */
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .product-item { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+    .product-item img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
+    .product-item h3 { font-size: 16px; margin-bottom: 8px; }
+    .product-item .price { font-size: 18px; font-weight: 700; color: #ee4d2d; margin-bottom: 10px; }
+    .product-item .stock-info { font-size: 13px; color: #888; }
+    
+    /* Toast */
+    .toast { position: fixed; bottom: 30px; right: 30px; background: #2d3436; color: white; padding: 15px 25px; border-radius: 10px; display: none; z-index: 2000; }
+    .toast.success { background: #00b894; }
+    .toast.error { background: #d63031; }
+    .toast.show { display: block; animation: slideIn 0.3s ease; }
+    @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .nav-tabs { overflow-x: auto; }
+      .container { padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🛒 Playbie Admin</h1>
+    <span class="badge" id="totalOrders">0 Orders</span>
+  </div>
+  
+  <nav class="nav">
+    <ul class="nav-tabs">
+      <li class="active" data-tab="orders">📦 Orders</li>
+      <li data-tab="products">🎨 Products</li>
+      <li data-tab="stock">📊 Stock</li>
+      <li data-tab="settings">⚙️ Settings</li>
+    </ul>
+  </nav>
+  
+  <div class="container">
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat-card orders">
+        <div class="label">Total Orders</div>
+        <div class="value" id="statTotalOrders">0</div>
+        <div class="sub">Semua pesanan</div>
+      </div>
+      <div class="stat-card pending">
+        <div class="label">Pending</div>
+        <div class="value" id="statPending">0</div>
+        <div class="sub">Menunggu konfirmasi</div>
+      </div>
+      <div class="stat-card revenue">
+        <div class="label">Paid Orders</div>
+        <div class="value" id="statPaid">0</div>
+        <div class="sub">Pembayaran berhasil</div>
+      </div>
+      <div class="stat-card stock">
+        <div class="label">Products</div>
+        <div class="value" id="statProducts">0</div>
+        <div class="sub">Total katalog</div>
+      </div>
+    </div>
+    
+    <!-- Orders Tab -->
+    <div class="tab-content active" id="tab-orders">
+      <div class="card">
+        <div class="card-header">
+          <h2>Daftar Pesanan</h2>
+          <button class="btn btn-primary" onclick="refreshOrders()">🔄 Refresh</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Produk</th>
+              <th>Variant</th>
+              <th>Total</th>
+              <th>Payment</th>
+              <th>Status</th>
+              <th>Tanggal</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="ordersTable"></tbody>
+        </table>
+      </div>
+    </div>
+    
+    <!-- Products Tab -->
+    <div class="tab-content" id="tab-products">
+      <div class="card">
+        <div class="card-header">
+          <h2>Kelola Produk</h2>
+          <button class="btn btn-primary" onclick="refreshProducts()">🔄 Refresh</button>
+        </div>
+        <div class="product-grid" id="productsGrid"></div>
+      </div>
+    </div>
+    
+    <!-- Stock Tab -->
+    <div class="tab-content" id="tab-stock">
+      <div class="card">
+        <div class="card-header">
+          <h2>Manajemen Stok</h2>
+        </div>
+        <div id="stockManagement"></div>
+      </div>
+    </div>
+    
+    <!-- Settings Tab -->
+    <div class="tab-content" id="tab-settings">
+      <div class="card">
+        <div class="card-header">
+          <h2>Pengaturan Toko</h2>
+        </div>
+        <div style="padding: 30px;">
+          <div class="form-group">
+            <label>WhatsApp Order Link</label>
+            <input type="text" id="settingWhatsApp" placeholder="https://wa.me/6281234567890?text=...">
+          </div>
+          <div class="form-group">
+            <label>QRIS Image URL</label>
+            <input type="text" id="settingQris" placeholder="https://example.com/qris.png">
+          </div>
+          <div class="form-group">
+            <label>Admin WhatsApp (untuk notifikasi order)</label>
+            <input type="text" id="settingAdminWa" placeholder="6281234567890">
+          </div>
+          <button class="btn btn-primary" onclick="saveSettings()">💾 Simpan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Order Detail Modal -->
+  <div class="modal" id="orderModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Detail Pesanan</h3>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div id="orderDetail"></div>
+    </div>
+  </div>
+  
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+  
+  <script>
+    const API = 'http://localhost:5000/api';
+    let orders = [];
+    let products = [];
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      loadOrders();
+      loadProducts();
+      loadSettings();
+      
+      // Tab navigation
+      document.querySelectorAll('.nav-tabs li').forEach(tab => {
+        tab.addEventListener('click', () => {
+          document.querySelectorAll('.nav-tabs li').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+          tab.classList.add('active');
+          document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+        });
+      });
+    });
+    
+    // Toast notification
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.className = 'toast ' + type + ' show';
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+    
+    // Load Orders
+    async function loadOrders() {
+      try {
+        const res = await fetch(API + '/orders');
+        const data = await res.json();
+        orders = data.orders || [];
+        renderOrders();
+        updateStats();
+      } catch (e) {
+        showToast('Gagal load orders: ' + e.message, 'error');
+      }
+    }
+    
+    function refreshOrders() { loadOrders(); }
+    
+    function renderOrders() {
+      const tbody = document.getElementById('ordersTable');
+      if (orders.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;padding:40px;color:#888;">Belum ada pesanan</td></tr>';
+        return;
+      }
+      
+      tbody.innerHTML = orders.map(o => `
+        <tr>
+          <td><span class="order-id">${o.id}</span></td>
+          <td>
+            <strong>${o.customer.name}</strong><br>
+            <small>${o.customer.phone}</small>
+          </td>
+          <td>${o.productName}</td>
+          <td>
+            ${o.variant.color ? '🎨 ' + o.variant.color : ''}<br>
+            ${o.variant.size ? '📏 ' + o.variant.size : ''}
+          </td>
+          <td><strong>${o.total}</strong></td>
+          <td>
+            <span class="payment-status ${o.paymentStatus}">${o.paymentStatus === 'paid' ? '✅ Lunas' : '⏳ Belum'}</span><br>
+            <small>${o.paymentMethod.toUpperCase()}</small>
+          </td>
+          <td><span class="status ${o.orderStatus}">${getStatusLabel(o.orderStatus)}</span></td>
+          <td>${new Date(o.createdAt).toLocaleDateString('id-ID')}</td>
+          <td>
+            <button class="btn btn-sm btn-primary" onclick="viewOrder('${o.id}')">👁️</button>
+            <button class="btn btn-sm btn-success" onclick="confirmOrder('${o.id}')">✓</button>
+            <button class="btn btn-sm btn-danger" onclick="cancelOrder('${o.id}')">✕</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+    
+    function getStatusLabel(status) {
+      const labels = {
+        'new': '🆕 Baru',
+        'confirmed': '✅ Dikonfirmasi',
+        'processing': '📦 Diproses',
+        'shipped': '🚚 Dikirim',
+        'delivered': '🎉 Selesai',
+        'cancelled': '❌ Dibatalkan'
+      };
+      return labels[status] || status;
+    }
+    
+    function updateStats() {
+      document.getElementById('statTotalOrders').textContent = orders.length;
+      document.getElementById('statPending').textContent = orders.filter(o => o.orderStatus === 'new' || o.orderStatus === 'confirmed').length;
+      document.getElementById('statPaid').textContent = orders.filter(o => o.paymentStatus === 'paid').length;
+      document.getElementById('totalOrders').textContent = orders.length + ' Orders';
+    }
+    
+    function viewOrder(id) {
+      const order = orders.find(o => o.id === id);
+      if (!order) return;
+      
+      document.getElementById('orderDetail').innerHTML = `
+        <div style="margin-bottom: 20px;">
+          <p><strong>Order ID:</strong> ${order.id}</p>
+          <p><strong>Tanggal:</strong> ${new Date(order.createdAt).toLocaleString('id-ID')}</p>
+        </div>
+        
+        <h4 style="margin-bottom:10px;">📦 Produk</h4>
+        <div style="background:#f8f9fa;padding:15px;border-radius:10px;margin-bottom:20px;">
+          <p><strong>${order.productName}</strong></p>
+          ${order.variant.color ? '<p>Warna: ' + order.variant.color + '</p>' : ''}
+          ${order.variant.size ? '<p>Ukuran: ' + order.variant.size + '</p>' : ''}
+          <p>Qty: ${order.quantity} × ${order.price} = <strong>${order.total}</strong></p>
+        </div>
+        
+        <h4 style="margin-bottom:10px;">👤 Customer</h4>
+        <div style="background:#f8f9fa;padding:15px;border-radius:10px;margin-bottom:20px;">
+          <p><strong>${order.customer.name}</strong></p>
+          <p>📱 ${order.customer.phone}</p>
+          <p>📍 ${order.customer.address}</p>
+          ${order.customer.notes ? '<p>📝 Catatan: ' + order.customer.notes + '</p>' : ''}
+        </div>
+        
+        <h4 style="margin-bottom:10px;">💳 Pembayaran</h4>
+        <div style="background:#f8f9fa;padding:15px;border-radius:10px;margin-bottom:20px;">
+          <p>Method: ${order.paymentMethod.toUpperCase()}</p>
+          <p>Status: <span class="payment-status ${order.paymentStatus}">${order.paymentStatus === 'paid' ? 'Lunas' : 'Belum Bayar'}</span></p>
+          <p>Order: <span class="status ${order.orderStatus}">${getStatusLabel(order.orderStatus)}</span></p>
+        </div>
+        
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <button class="btn btn-success" onclick="updateOrderStatus('${order.id}', 'confirmed')">✅ Konfirmasi</button>
+          <button class="btn btn-primary" onclick="updateOrderStatus('${order.id}', 'processing')">📦 Proses</button>
+          <button class="btn btn-primary" onclick="updateOrderStatus('${order.id}', 'shipped')">🚚 Kirim</button>
+          <button class="btn btn-success" onclick="updateOrderStatus('${order.id}', 'delivered')">🎉 Selesai</button>
+          <button class="btn btn-warning" onclick="togglePayment('${order.id}')">💰 Toggle Bayar</button>
+          <button class="btn btn-danger" onclick="cancelOrder('${order.id}')">❌ Batalkan</button>
+        </div>
+      `;
+      
+      document.getElementById('orderModal').classList.add('active');
+    }
+    
+    async function updateOrderStatus(id, status) {
+      try {
+        await fetch(API + '/orders/' + id, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ orderStatus: status })
+        });
+        showToast('Status updated!');
+        loadOrders();
+        closeModal();
+      } catch (e) {
+        showToast('Error: ' + e.message, 'error');
+      }
+    }
+    
+    async function togglePayment(id) {
+      const order = orders.find(o => o.id === id);
+      const newStatus = order.paymentStatus === 'paid' ? 'pending' : 'paid';
+      try {
+        await fetch(API + '/orders/' + id, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ paymentStatus: newStatus })
+        });
+        showToast('Payment status toggled!');
+        loadOrders();
+        viewOrder(id);
+      } catch (e) {
+        showToast('Error: ' + e.message, 'error');
+      }
+    }
+    
+    async function confirmOrder(id) {
+      await updateOrderStatus(id, 'confirmed');
+    }
+    
+    async function cancelOrder(id) {
+      if (!confirm('Batalkan pesanan ini?')) return;
+      try {
+        await fetch(API + '/orders/' + id, { method: 'DELETE' });
+        showToast('Order cancelled');
+        loadOrders();
+        closeModal();
+      } catch (e) {
+        showToast('Error: ' + e.message, 'error');
+      }
+    }
+    
+    function closeModal() {
+      document.getElementById('orderModal').classList.remove('active');
+    }
+    
+    // Products
+    async function loadProducts() {
+      try {
+        const res = await fetch(API + '/products');
+        const data = await res.json();
+        products = data.products || [];
+        renderProducts();
+        renderStock();
+        document.getElementById('statProducts').textContent = products.length;
+      } catch (e) {
+        showToast('Gagal load products: ' + e.message, 'error');
+      }
+    }
+    
+    function refreshProducts() { loadProducts(); }
+    
+    function renderProducts() {
+      const grid = document.getElementById('productsGrid');
+      grid.innerHTML = products.map(p => `
+        <div class="product-item">
+          <img src="${p.image || 'assets/product-placeholder.jpg'}" alt="${p.name}" onerror="this.src='assets/product-placeholder.jpg'">
+          <h3>${p.name}</h3>
+          <div class="price">${p.price}</div>
+          <div class="stock-info">
+            📦 Stok: ${p.stock?.total || 100} |
+            🎨 ${p.variants?.colors?.length || 0} warna |
+            📏 ${p.variants?.sizes?.length || 0} ukuran
+          </div>
+        </div>
+      `).join('');
+    }
+    
+    function renderStock() {
+      const container = document.getElementById('stockManagement');
+      container.innerHTML = products.map(p => {
+        let html = `
+          <div style="padding:20px;border-bottom:1px solid #eee;">
+            <h3 style="margin-bottom:15px;">${p.name}</h3>
+        `;
+        
+        if (p.variants?.colors?.length) {
+          html += '<div style="margin-bottom:15px;"><strong>🎨 Warna:</strong><div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;">';
+          p.variants.colors.forEach(c => {
+            const stock = p.stock?.colors?.[c] || 50;
+            html += `<span style="padding:5px 12px;background:${stock > 10 ? '#d4edda' : '#f8d7da'};border-radius:20px;">${c}: ${stock}</span>`;
+          });
+          html += '</div></div>';
+        }
+        
+        if (p.variants?.sizes?.length) {
+          html += '<div style="margin-bottom:15px;"><strong>📏 Ukuran:</strong><div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;">';
+          p.variants.sizes.forEach(s => {
+            const stock = p.stock?.sizes?.[s] || 30;
+            html += `<span style="padding:5px 12px;background:${stock > 10 ? '#d4edda' : '#f8d7da'};border-radius:20px;">${s}: ${stock}</span>`;
+          });
+          html += '</div></div>';
+        }
+        
+        html += `<p><strong>Total Stok:</strong> ${p.stock?.total || 100}</p>`;
+        html += '</div>';
+        return html;
+      }).join('');
+    }
+    
+    // Settings
+    function loadSettings() {
+      const settings = JSON.parse(localStorage.getItem('playbie_settings') || '{}');
+      document.getElementById('settingWhatsApp').value = settings.whatsapp || '';
+      document.getElementById('settingQris').value = settings.qris || '';
+      document.getElementById('settingAdminWa').value = settings.adminWa || '';
+    }
+    
+    function saveSettings() {
+      const settings = {
+        whatsapp: document.getElementById('settingWhatsApp').value,
+        qris: document.getElementById('settingQris').value,
+        adminWa: document.getElementById('settingAdminWa').value
+      };
+      localStorage.setItem('playbie_settings', JSON.stringify(settings));
+      showToast('Pengaturan disimpan!');
+    }
+  </script>
+</body>
+</html>

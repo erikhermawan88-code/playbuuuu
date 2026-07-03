@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Playbie</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .checkout-page { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+    .checkout-page h1 { font-size: 32px; margin-bottom: 30px; text-align: center; }
+    
+    .checkout-grid { display: grid; grid-template-columns: 1fr 400px; gap: 30px; }
+    
+    .checkout-section { background: white; border-radius: 16px; padding: 25px; margin-bottom: 20px; box-shadow: 0 2px 15px rgba(0,0,0,0.08); }
+    .checkout-section h3 { font-size: 18px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    .checkout-section h3 span { width: 30px; height: 30px; background: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+    
+    .checkout-product { display: flex; gap: 15px; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+    .checkout-product img { width: 100px; height: 100px; object-fit: cover; border-radius: 10px; }
+    .checkout-product-info { flex: 1; }
+    .checkout-product-info h4 { font-size: 16px; margin-bottom: 5px; }
+    .checkout-product-info .price { font-size: 18px; font-weight: 700; color: var(--color-primary); margin-bottom: 10px; }
+    
+    /* Variant selector */
+    .variant-selector { margin-top: 15px; }
+    .variant-label { font-size: 14px; font-weight: 600; color: #555; margin-bottom: 8px; }
+    .variant-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .variant-btn { padding: 8px 16px; border: 2px solid #e0e0e0; border-radius: 10px; background: white; cursor: pointer; font-size: 14px; transition: all 0.2s; }
+    .variant-btn:hover { border-color: var(--color-primary); }
+    .variant-btn.selected { border-color: var(--color-primary); background: rgba(232,138,125,0.1); }
+    .variant-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    
+    /* Quantity selector */
+    .qty-selector { display: flex; align-items: center; gap: 10px; margin-top: 15px; }
+    .qty-btn { width: 36px; height: 36px; border: 2px solid #e0e0e0; border-radius: 8px; background: white; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; }
+    .qty-btn:hover { border-color: var(--color-primary); }
+    .qty-value { font-size: 18px; font-weight: 700; min-width: 40px; text-align: center; }
+    
+    /* Form */
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; font-size: 14px; font-weight: 600; color: #555; margin-bottom: 6px; }
+    .form-group input, .form-group textarea { width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 14px; transition: border-color 0.2s; }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--color-primary); }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    
+    /* Order summary */
+    .order-summary { position: sticky; top: 20px; }
+    .summary-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+    .summary-item:last-child { border-bottom: none; }
+    .summary-total { display: flex; justify-content: space-between; padding: 15px 0; font-size: 20px; font-weight: 700; }
+    .summary-total .amount { color: var(--color-primary); }
+    
+    /* Payment method */
+    .payment-methods { display: flex; flex-direction: column; gap: 12px; }
+    .payment-option { display: flex; align-items: center; gap: 15px; padding: 15px; border: 2px solid #e0e0e0; border-radius: 12px; cursor: pointer; transition: all 0.2s; }
+    .payment-option:hover { border-color: var(--color-primary); }
+    .payment-option.selected { border-color: var(--color-primary); background: rgba(232,138,125,0.05); }
+    .payment-option input { display: none; }
+    .payment-icon { width: 40px; height: 40px; background: #f0f0f0; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .payment-label { flex: 1; }
+    .payment-label strong { display: block; font-size: 15px; }
+    .payment-label span { font-size: 12px; color: #888; }
+    
+    /* QRIS */
+    .qris-box { background: #f8f9fa; padding: 20px; border-radius: 12px; text-align: center; margin-top: 15px; display: none; }
+    .qris-box.active { display: block; }
+    .qris-box img { max-width: 200px; border-radius: 10px; margin-bottom: 10px; }
+    .qris-box p { font-size: 14px; color: #666; }
+    .qris-box .amount { font-size: 24px; font-weight: 700; color: var(--color-primary); }
+    
+    /* Buttons */
+    .btn-checkout { display: block; width: 100%; padding: 16px; background: var(--color-primary); color: white; border: none; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 20px; transition: all 0.2s; }
+    .btn-checkout:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(232,138,125,0.3); }
+    .btn-checkout:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    
+    .btn-back { display: inline-flex; align-items: center; gap: 8px; color: #888; text-decoration: none; font-size: 14px; margin-bottom: 20px; }
+    .btn-back:hover { color: var(--color-primary); }
+    
+    /* Success */
+    .checkout-success { text-align: center; padding: 60px 20px; }
+    .checkout-success .icon { font-size: 80px; margin-bottom: 20px; }
+    .checkout-success h2 { font-size: 28px; margin-bottom: 15px; }
+    .checkout-success p { color: #666; margin-bottom: 30px; line-height: 1.6; }
+    .order-number { background: #f0f0f0; padding: 15px 25px; border-radius: 10px; display: inline-block; margin-bottom: 20px; }
+    .order-number strong { font-family: monospace; font-size: 18px; }
+    
+    @media (max-width: 768px) {
+      .checkout-grid { grid-template-columns: 1fr; }
+      .order-summary { position: static; }
+    }
+  </style>
+</head>
+<body class="theme-pastel">
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">playbie</a>
+      <nav class="nav-links">
+        <a href="index.html">HOME</a>
+        <a href="index.html#products">PRODUCTS</a>
+        <a href="admin/index.html" class="admin-link">⚙️ Admin</a>
+      </nav>
+    </div>
+  </header>
+  
+  <main class="checkout-page" id="checkoutPage">
+    <a href="index.html" class="btn-back">← Kembali ke Beranda</a>
+    <h1>Checkout</h1>
+    
+    <div class="checkout-grid">
+      <!-- Left: Form -->
+      <div class="checkout-left">
+        <!-- Product & Variants -->
+        <div class="checkout-section">
+          <h3><span>1</span> Produk</h3>
+          <div class="checkout-product">
+            <img id="checkoutProductImg" src="" alt="Product">
+            <div class="checkout-product-info">
+              <h4 id="checkoutProductName">Loading...</h4>
+              <div class="price" id="checkoutProductPrice">-</div>
+              
+              <div class="variant-selector" id="colorSelector" style="display:none;">
+                <div class="variant-label">🎨 Pilih Warna:</div>
+                <div class="variant-options" id="colorOptions"></div>
+              </div>
+              
+              <div class="variant-selector" id="sizeSelector" style="display:none;">
+                <div class="variant-label">📏 Pilih Ukuran:</div>
+                <div class="variant-options" id="sizeOptions"></div>
+              </div>
+              
+              <div class="variant-selector" id="typeSelector" style="display:none;">
+                <div class="variant-label">📦 Pilih Tipe:</div>
+                <div class="variant-options" id="typeOptions"></div>
+              </div>
+              
+              <div class="qty-selector">
+                <span class="variant-label" style="margin:0;">Jumlah:</span>
+                <button class="qty-btn" onclick="changeQty(-1)">−</button>
+                <span class="qty-value" id="qtyValue">1</span>
+                <button class="qty-btn" onclick="changeQty(1)">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Customer Info -->
+        <div class="checkout-section">
+          <h3><span>2</span> Data Pengiriman</h3>
+          <div class="form-group">
+            <label>Nama Lengkap *</label>
+            <input type="text" id="custName" placeholder="Masukkan nama lengkap" required>
+          </div>
+          <div class="form-group">
+            <label>No. WhatsApp *</label>
+            <input type="tel" id="custPhone" placeholder="08xxxxxxxxxx" required>
+          </div>
+          <div class="form-group">
+            <label>Alamat Lengkap *</label>
+            <textarea id="custAddress" placeholder="Masukkan alamat lengkap (kota, kecamatan, kode pos)" required></textarea>
+          </div>
+          <div class="form-group">
+            <label>Catatan (opsional)</label>
+            <textarea id="custNotes" placeholder="Catatan tambahan untuk pesanan"></textarea>
+          </div>
+        </div>
+        
+        <!-- Payment -->
+        <div class="checkout-section">
+          <h3><span>3</span> Metode Pembayaran</h3>
+          <div class="payment-methods">
+            <label class="payment-option selected" id="qrisOption">
+              <input type="radio" name="payment" value="qris" checked>
+              <div class="payment-icon">📱</div>
+              <div class="payment-label">
+                <strong>QRIS</strong>
+                <span>Scan QR code dengan aplikasi bank / e-wallet</span>
+              </div>
+            </label>
+            
+            <label class="payment-option" id="waOption">
+              <input type="radio" name="payment" value="whatsapp">
+              <div class="payment-icon">💬</div>
+              <div class="payment-label">
+                <strong>WhatsApp Order</strong>
+                <span>Pesan langsung via WhatsApp</span>
+              </div>
+            </label>
+          </div>
+          
+          <div class="qris-box active" id="qrisBox">
+            <img id="qrisImage" src="assets/qris-placeholder.png" alt="QRIS">
+            <div class="amount" id="qrisAmount">Rp0</div>
+            <p>Scan QR code di atas untuk pembayaran</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right: Summary -->
+      <div class="checkout-right">
+        <div class="checkout-section order-summary">
+          <h3><span>📋</span> Ringkasan Pesanan</h3>
+          <div class="summary-item">
+            <span>Subtotal</span>
+            <span id="summarySubtotal">Rp0</span>
+          </div>
+          <div class="summary-item">
+            <span>Ongkos Kirim</span>
+            <span id="summaryShipping">Dihitung kemudian</span>
+          </div>
+          <div class="summary-item">
+            <span>Pajak (11%)</span>
+            <span id="summaryTax">Rp0</span>
+          </div>
+          <div class="summary-total">
+            <span>Total</span>
+            <span class="amount" id="summaryTotal">Rp0</span>
+          </div>
+          
+          <button class="btn-checkout" id="btnCheckout" onclick="processCheckout()">
+            🛒 Konfirmasi Pesanan
+          </button>
+          
+          <p style="text-align:center;font-size:12px;color:#888;margin-top:15px;">
+            Dengan checkout, Anda menyetujui syarat & ketentuan Playbie
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <!-- Success Page -->
+  <main class="checkout-page" id="successPage" style="display:none;">
+    <div class="checkout-success">
+      <div class="icon">🎉</div>
+      <h2>Pesanan Berhasil!</h2>
+      <div class="order-number">
+        Order ID: <strong id="successOrderId">-</strong>
+      </div>
+      <p id="successMessage">Terima kasih! Pesanan Anda sedang diproses.</p>
+      <div id="paymentInfo" style="margin:20px 0;"></div>
+      <a href="index.html" class="btn-checkout" style="max-width:300px;margin:0 auto;text-decoration:none;">
+        ← Kembali ke Beranda
+      </a>
+    </div>
+  </main>
+  
+  <script>
+    const API = '/api';
+    let product = null;
+    let selectedColor = '';
+    let selectedSize = '';
+    let selectedType = '';
+    let quantity = 1;
+    let paymentMethod = 'qris';
+    
+    // Load product from URL params
+    function loadProduct() {
+      const params = new URLSearchParams(window.location.search);
+      const productId = params.get('product');
+      
+      if (!productId) {
+        alert('Produk tidak ditemukan');
+        window.location.href = 'index.html';
+        return;
+      }
+      
+      fetch(API + '/products/' + productId)
+        .then(r => r.json())
+        .then(p => {
+          product = p;
+          renderProduct();
+          renderVariants();
+          updateSummary();
+        })
+        .catch(err => {
+          alert('Gagal load produk: ' + err.message);
+          window.location.href = 'index.html';
+        });
+    }
+    
+    function renderProduct() {
+      document.getElementById('checkoutProductImg').src = product.image || 'assets/product-placeholder.jpg';
+      document.getElementById('checkoutProductName').textContent = product.name;
+      document.getElementById('checkoutProductPrice').textContent = product.price;
+    }
+    
+    function renderVariants() {
+      // Colors
+      const colors = product.variants?.colors || [];
+      if (colors.length > 0) {
+        document.getElementById('colorSelector').style.display = 'block';
+        document.getElementById('colorOptions').innerHTML = colors.map(c => 
+          `<button class="variant-btn" onclick="selectColor('${c}')">${c}</button>`
+        ).join('');
+        selectedColor = colors[0];
+      }
+      
+      // Sizes
+      const sizes = product.variants?.sizes || [];
+      if (sizes.length > 0) {
+        document.getElementById('sizeSelector').style.display = 'block';
+        document.getElementById('sizeOptions').innerHTML = sizes.map(s => 
+          `<button class="variant-btn" onclick="selectSize('${s}')">${s}</button>`
+        ).join('');
+        selectedSize = sizes[0];
+      }
+      
+      // Types
+      const types = product.variants?.types || [];
+      if (types.length > 0) {
+        document.getElementById('typeSelector').style.display = 'block';
+        document.getElementById('typeOptions').innerHTML = types.map(t => 
+          `<button class="variant-btn" onclick="selectType('${t}')">${t}</button>`
+        ).join('');
+        selectedType = types[0];
+      }
+      
+      // Auto select first options
+      if (selectedColor) selectColor(selectedColor);
+      if (selectedSize) selectSize(selectedSize);
+      if (selectedType) selectType(selectedType);
+    }
+    
+    function selectColor(c) {
+      selectedColor = c;
+      document.querySelectorAll('#colorOptions .variant-btn').forEach(b => {
+        b.classList.toggle('selected', b.textContent === c);
+      });
+      updateSummary();
+    }
+    
+    function selectSize(s) {
+      selectedSize = s;
+      document.querySelectorAll('#sizeOptions .variant-btn').forEach(b => {
+        b.classList.toggle('selected', b.textContent === s);
+      });
+      updateSummary();
+    }
+    
+    function selectType(t) {
+      selectedType = t;
+      document.querySelectorAll('#typeOptions .variant-btn').forEach(b => {
+        b.classList.toggle('selected', b.textContent === t);
+      });
+      updateSummary();
+    }
+    
+    function changeQty(delta) {
+      quantity = Math.max(1, Math.min(10, quantity + delta));
+      document.getElementById('qtyValue').textContent = quantity;
+      updateSummary();
+    }
+    
+    function parsePrice(priceStr) {
+      return parseInt((priceStr || '0').replace(/[^0-9]/g, '')) || 0;
+    }
+    
+    function formatPrice(num) {
+      return 'Rp' + num.toLocaleString('id-ID');
+    }
+    
+    function updateSummary() {
+      const basePrice = parsePrice(product?.price);
+      const subtotal = basePrice * quantity;
+      const tax = Math.round(subtotal * 0.11);
+      const total = subtotal + tax;
+      
+      document.getElementById('summarySubtotal').textContent = formatPrice(subtotal);
+      document.getElementById('summaryTax').textContent = formatPrice(tax);
+      document.getElementById('summaryTotal').textContent = formatPrice(total);
+      document.getElementById('qrisAmount').textContent = formatPrice(total);
+    }
+    
+    // Payment method toggle
+    document.querySelectorAll('input[name="payment"]').forEach(input => {
+      input.addEventListener('change', function() {
+        paymentMethod = this.value;
+        document.querySelectorAll('.payment-option').forEach(o => o.classList.remove('selected'));
+        this.closest('.payment-option').classList.add('selected');
+        document.getElementById('qrisBox').classList.toggle('active', paymentMethod === 'qris');
+      });
+    });
+    
+    async function processCheckout() {
+      // Validate
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const address = document.getElementById('custAddress').value.trim();
+      const notes = document.getElementById('custNotes').value.trim();
+      
+      if (!name || !phone || !address) {
+        alert('Mohon lengkapi data pengiriman!');
+        return;
+      }
+      
+      const btn = document.getElementById('btnCheckout');
+      btn.disabled = true;
+      btn.textContent = '⏳ Memproses...';
+      
+      const basePrice = parsePrice(product.price);
+      const subtotal = basePrice * quantity;
+      const tax = Math.round(subtotal * 0.11);
+      const total = subtotal + tax;
+      
+      const orderData = {
+        productId: product.id,
+        color: selectedColor,
+        size: selectedSize,
+        quantity: quantity,
+        name: name,
+        phone: phone,
+        address: address,
+        notes: notes,
+        paymentMethod: paymentMethod,
+        total: formatPrice(total)
+      };
+      
+      try {
+        // Create order
+        const res = await fetch(API + '/orders', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(orderData)
+        });
+        
+        if (!res.ok) throw new Error('Gagal membuat pesanan');
+        
+        const data = await res.json();
+        const order = data.order;
+        
+        // Generate QRIS if needed
+        if (paymentMethod === 'qris') {
+          await fetch(API + '/qris/generate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ amount: total, orderId: order.id })
+          });
+        }
+        
+        // Show success
+        showSuccess(order);
+        
+      } catch (err) {
+        alert('Error: ' + err.message);
+        btn.disabled = false;
+        btn.textContent = '🛒 Konfirmasi Pesanan';
+      }
+    }
+    
+    function showSuccess(order) {
+      document.getElementById('checkoutPage').style.display = 'none';
+      document.getElementById('successPage').style.display = 'block';
+      
+      document.getElementById('successOrderId').textContent = order.id;
+      
+      let paymentInfo = '';
+      if (paymentMethod === 'whatsapp') {
+        const waLink = `https://wa.me/6281234567890?text=Halo,%20saya%20mau%20checkout:%0A%0A*Order:*%20${order.id}%0A*Produk:*%20${product.name}%0A*Warna:*%20${selectedColor}%0A*Ukuran:*%20${selectedSize}%0A*Qty:*%20${quantity}%0A*Nama:*%20${document.getElementById('custName').value}%0A*Alamat:*%20${document.getElementById('custAddress').value}%0A%0ASilakan%20lanjutkan%20pembayaran!`;
+        paymentInfo = `<a href="${waLink}" class="btn-checkout" style="background:#25D366;max-width:300px;margin:0 auto;text-decoration:none;" target="_blank">💬 Lanjutkan via WhatsApp</a>`;
+      } else {
+        paymentInfo = `
+          <div style="background:#f0f0f0;padding:20px;border-radius:12px;max-width:300px;margin:0 auto;">
+            <p style="margin-bottom:10px;">📱 Silakan scan QRIS untuk pembayaran</p>
+            <p style="font-size:14px;color:#666;">Order ID: <strong>${order.id}</strong></p>
+            <p style="font-size:14px;color:#666;">Simpan ID ini untuk verifikasi</p>
+          </div>
+        `;
+      }
+      document.getElementById('paymentInfo').innerHTML = paymentInfo;
+    }
+    
+    // Init
+    loadProduct();
+  </script>
+</body>
+</html>

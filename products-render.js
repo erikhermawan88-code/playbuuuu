@@ -11,6 +11,7 @@
   var currentFilter = 'all';
 
   function init() {
+    // Load from static products.json (same-origin)
     fetch('products.json')
       .then(function(resp) { return resp.json(); })
       .then(function(data) {
@@ -21,7 +22,7 @@
         initSort();
       })
       .catch(function(err) {
-        console.warn('[Products] Failed to load products.json:', err);
+        console.warn('[Products] Failed to load:', err);
       });
   }
 
@@ -108,9 +109,9 @@
         '<div class="product-variants-preview">' +
           '<span class="variant-text">' + variantText + '</span>' +
         '</div>' +
-        '<button class="btn-buy" data-id="' + p.id + '">' +
-          'Beli di Shopee ↗' +
-        '</button>' +
+        '<a href="checkout.html?product=' + p.id + '" class="btn-buy" data-id="' + p.id + '">' +
+          '🛒 Beli Sekarang' +
+        '</a>' +
       '</div>' +
     '</div>';
   }
@@ -225,8 +226,8 @@
                 '<h4>Deskripsi</h4>' +
                 '<p id="modalProductDesc"></p>' +
               '</div>' +
-              '<a id="modalShopeeBtn" href="#" class="btn btn-primary btn-shopee-modal" target="_blank">' +
-                'Beli di Shopee ↗' +
+              '<a href="checkout.html?product=' + p.id + '" class="btn btn-primary btn-shopee-modal" target="_blank">' +
+                '🛒 Beli di Website' +
               '</a>' +
             '</div>' +
           '</div>' +
